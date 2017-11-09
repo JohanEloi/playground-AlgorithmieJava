@@ -1,4 +1,6 @@
+// { autofold
 package com.egaetan;
+// }
 
 /*******
  * Read input from System.in
