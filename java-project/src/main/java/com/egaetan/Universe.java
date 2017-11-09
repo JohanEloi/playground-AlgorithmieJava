@@ -1,5 +1,5 @@
 // { autofold
-package com.yourself;
+package com.egaetan;
 
 import java.util.Arrays;
 

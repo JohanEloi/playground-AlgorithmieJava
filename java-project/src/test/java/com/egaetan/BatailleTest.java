@@ -1,4 +1,4 @@
-package com.yourself;
+package com.egaetan;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,7 +7,9 @@ import java.util.Scanner;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class UniverseTest {
+import com.egaetan.Universe;
+
+public class BatailleTest {
 
 	@Test
 	public void test() throws FileNotFoundException {
