@@ -5,8 +5,8 @@ Avant de commmencer ce playground, vous devez déjà connaitre des bases de prog
 
 # Exercices
 
-Les exercices proposés ici sont très fortement inspirés de ceux proposé à la 10ème édition de la BattleDev en novembre 2017.
-
+Les exercices proposés ici sont très librement inspirés de ceux proposé à la 10ème édition de la BattleDev en novembre 2017.
+[BattleDev](https://battledev.blogdumoderateur.com/)
 
 This Java template lets you get started quickly with a simple working example using Maven and JUnit. If it is your first contribution then you should have a look at the [Getting Started](https://tech.io/doc/getting-started-create-playground) document.
 
