@@ -1,5 +1,6 @@
 # Bataille
 
+
 ## Enoncé
 
 Un soir, deux frères profitent de l'absence de leurs parents pour commander des burgers. Pour ne pas laisser de trace, l'un d'entre eux doit descendre les poubelles avant minuit. Ils décident de se départager au jeu de la bataille. Le principe est simple, chaque joueur a le même nombre de cartes et à chaque tour, chaque joueur présente une carte. Celui qui a la carte de plus grande valeur remporte le point. Si les deux cartes ont la même valeur, personne ne remporte le point. Le gagnant du jeu est celui qui a le plus de points à la fin.
@@ -12,9 +13,15 @@ On va nommer les deux frères A et B. Pour simplifier, nous allons considérer q
 
 ### Entrée
 
-Ligne 1 : un entier N compris entre 10 et 100 représentant le nombre de tours.
+**Ligne 1** : un entier N compris entre 10 et 100 représentant le nombre de tours.
 
-Lignes 2 à N+1 : deux entiers compris entre 1 et 10 séparés par un espace représentant la carte du joueur A et celle du joueur B.
+**Lignes 2 à N+1** : deux entiers compris entre 1 et 10 séparés par un espace représentant la carte du joueur A et celle du joueur B.
 
 ### Sortie
 Le caractère A ou le caractère B représentant le gagnant de la partie.
+
+
+:::
+## Explications
+
+:::
