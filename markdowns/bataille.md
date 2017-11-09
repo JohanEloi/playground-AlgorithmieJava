@@ -13,6 +13,7 @@ On va nommer les deux frères A et B. Pour simplifier, nous allons considérer q
 ### Entrée
 
 Ligne 1 : un entier N compris entre 10 et 100 représentant le nombre de tours.
+
 Lignes 2 à N+1 : deux entiers compris entre 1 et 10 séparés par un espace représentant la carte du joueur A et celle du joueur B.
 
 ### Sortie
