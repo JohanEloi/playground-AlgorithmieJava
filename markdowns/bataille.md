@@ -24,3 +24,6 @@ Le caractère A ou le caractère B représentant le gagnant de la partie.
 ::: Explications
 
 :::
+
+
+@[Bataille]({"stubs": ["src/main/java/com/egaetan/Bataille.java"], "command": "com.egaetan.BatailleTest#test"})
