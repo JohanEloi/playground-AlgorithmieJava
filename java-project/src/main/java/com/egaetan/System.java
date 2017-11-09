@@ -1,7 +1,9 @@
 package com.egaetan;
 
 import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
+import java.io.Reader;
 
 public class System {
 
@@ -24,7 +26,8 @@ public class System {
 	
 	public static void initPath(String path) {
 		try {
-			FileReader reader = new FileReader(path);
+			Reader reader = new FileReader(path); 
+					//new InputStreamReader(System.class.getClassLoader().getResourceAsStream(path));
 			in = reader;
 		} catch (Exception e) {
 			e.printStackTrace();
