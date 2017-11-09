@@ -21,7 +21,6 @@ On va nommer les deux frères A et B. Pour simplifier, nous allons considérer q
 Le caractère A ou le caractère B représentant le gagnant de la partie.
 
 
-:::
-## Explications
+::: Explications
 
 :::
