@@ -1,24 +1,32 @@
 package com.egaetan;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.egaetan.Universe;
 
 public class BatailleTest {
 
 	@Test
 	public void test() throws FileNotFoundException {
 		try {
-			Assert.assertEquals("Running Universe.countAllStars(2, 3)...", 5, Universe.countAllStars(2, 3));
-			Assert.assertEquals("Running Universe.countAllStars(9, -3)...", 6, Universe.countAllStars(9, -3));
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			System.out = new PrintStream(baos);
+			
+			Bataille.main(new String[0]);
+
+			String res = baos.toString().trim();
+			Assert.assertEquals("Test 1 ...", "A", res);
+			
+//			Assert.assertEquals("Running Universe.countAllStars(2, 3)...", 5, Universe.countAllStars(2, 3));
+//			Assert.assertEquals("Running Universe.countAllStars(9, -3)...", 6, Universe.countAllStars(9, -3));
 			success(true);
 
-			if (existsInFile("Arrays.stream(galaxies).sum()", new File("./src/main/java/com/yourself/Universe.java"))) {
+			/*if (existsInFile("Arrays.stream(galaxies).sum()", new File("./src/main/java/com/yourself/Universe.java"))) {
 				msg("My personal Yoda, you are. 🙏", "* ● ¸ .　¸. :° ☾ ° 　¸. ● ¸ .　　¸.　:. • ");
 				msg("My personal Yoda, you are. 🙏", "           　★ °  ☆ ¸. ¸ 　★　 :.　 .   ");
 				msg("My personal Yoda, you are. 🙏", "__.-._     ° . .　　　　.　☾ ° 　. *   ¸ .");
@@ -31,7 +39,7 @@ public class BatailleTest {
 				msg("Kudos 🌟", "");
 				msg("Kudos 🌟", "int[] galaxies = {37, 3, 2};");
 				msg("Kudos 🌟", "int totalStars = Arrays.stream(galaxies).sum(); // 42");
-			}
+			}*/
 		} catch (AssertionError ae) {
 			success(false);
 			msg("Oops! 🐞", ae.getMessage());

@@ -3,9 +3,9 @@ package com.egaetan;
 // }
 
 /*******
- * Read input from System.in
- * Use System.out.println to ouput your result.
- * Use System.err.println to display variable in a dedicated area.
+ * Lire les donnees depuis System.in
+ * Utilise System.out.println pour afficher le resultat
+ * Utilise System.err.println pour afficher des donnees de debug
  * ***/
 import java.util.*;
 
