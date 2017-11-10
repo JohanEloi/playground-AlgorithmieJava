@@ -21,7 +21,7 @@ public class BatailleTest {
 			runTest("bataille1.txt", "Simple test, A vainqueur", "A");
 			runTest("bataille2.txt", "Simple test, B vainqueur", "B");
 			runTest("bataille3.txt", "Test 2", "B");
-			runTest("bataille4.txt", "Ex-Aequo B vainqueur", "B");
+			runTest("bataille4.txt", "Ex-Aequo", "A");
 			
 			
 			
