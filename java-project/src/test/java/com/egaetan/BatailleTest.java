@@ -11,27 +11,64 @@ import org.junit.Test;
 
 public class BatailleTest {
 
-	
-	
-	
+	public static class Runner {
+		final Runnable underTest;
+
+		boolean isAllOk = true;
+		public Runner(Runnable underTest) {
+			super();
+			this.underTest = underTest;
+		}
+
+		public void run(String inputFile, String testName, String expected) throws FileNotFoundException {
+			try {
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				System.out = new PrintStream(baos);
+				System.initPath(inputFile);
+
+				underTest.run();
+
+				String res = baos.toString().trim();
+				Assert.assertEquals(testName, expected, res);
+
+				msg("Résultats", "✔ "+ testName);
+			} catch (AssertionError ae) {
+				success(false);
+				isAllOk = false;
+				msg("Résultats", "✘" + ae.getMessage());
+			}
+		}
+	}
+
+
+	Runner runner;
+
+
 	@Test
 	public void test() throws FileNotFoundException {
-		try {
-			msg("Succès", "Le code compile");
-			runTest("bataille1.txt", "Simple test, A vainqueur", "A");
-			runTest("bataille2.txt", "Simple test, B vainqueur", "B");
-			runTest("bataille3.txt", "Test 2", "B");
-			runTest("bataille4.txt", "Ex-Aequos", "A");
-			runTest("bataille5.txt", "100 valeurs", "A");
-			runTest("bataille6.txt", "Pas de triches", "A");
-			
-			msg("Succès", "#Bataille gagnée 🃏");
-			
-//			Assert.assertEquals("Running Universe.countAllStars(2, 3)...", 5, Universe.countAllStars(2, 3));
-//			Assert.assertEquals("Running Universe.countAllStars(9, -3)...", 6, Universe.countAllStars(9, -3));
-			success(true);
+		runner = new Runner(() -> new Bataille().main());
+		msg("Résultats", "Le code compile");
+		runTest("bataille1.txt", "Simple test, A vainqueur", "A");
+		runTest("bataille2.txt", "Simple test, B vainqueur", "B");
+		runTest("bataille3.txt", "Test 2", "B");
+		runTest("bataille4.txt", "Ex-Aequos", "A");
+		runTest("bataille5.txt", "100 valeurs", "A");
+		runTest("bataille6.txt", "Pas de triches", "A");
 
-			/*if (existsInFile("Arrays.stream(galaxies).sum()", new File("./src/main/java/com/yourself/Universe.java"))) {
+		msg("Succès", "#Bataille gagnée 🃏");
+
+		//			Assert.assertEquals("Running Universe.countAllStars(2, 3)...", 5, Universe.countAllStars(2, 3));
+		//			Assert.assertEquals("Running Universe.countAllStars(9, -3)...", 6, Universe.countAllStars(9, -3));
+		if (runner.isAllOk) {
+			success(true);
+		}
+		else {
+			success(false);
+			msg("Oops! 🐞", "Certains validateurs ne passent pas. :(");
+			msg("Aide 💡", "La section explications peut aider.");
+		}
+
+		/*if (existsInFile("Arrays.stream(galaxies).sum()", new File("./src/main/java/com/yourself/Universe.java"))) {
 				msg("My personal Yoda, you are. 🙏", "* ● ¸ .　¸. :° ☾ ° 　¸. ● ¸ .　　¸.　:. • ");
 				msg("My personal Yoda, you are. 🙏", "           　★ °  ☆ ¸. ¸ 　★　 :.　 .   ");
 				msg("My personal Yoda, you are. 🙏", "__.-._     ° . .　　　　.　☾ ° 　. *   ¸ .");
@@ -45,26 +82,13 @@ public class BatailleTest {
 				msg("Kudos 🌟", "int[] galaxies = {37, 3, 2};");
 				msg("Kudos 🌟", "int totalStars = Arrays.stream(galaxies).sum(); // 42");
 			}*/
-		} catch (AssertionError ae) {
-			success(false);
-			msg("Oops! 🐞", ae.getMessage());
-			msg("Hint 💡", "");
-		}
 	}
 
 	private void runTest(String inputFile, String testName, String expected)  throws FileNotFoundException {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		System.out = new PrintStream(baos);
-		System.initPath(inputFile);
-				
-		Bataille.main(new String[0]);
-		
-		String res = baos.toString().trim();
-		Assert.assertEquals(testName, expected, res);
-		
-		msg("Succès", "✔ "+ testName);
+		runner.run(inputFile, testName, expected);
 	}
-	
+
+
 	private static void msg(String channel, String msg) {
 		java.lang.System.out.println(String.format("TECHIO> message --channel \"%s\" \"%s\"", channel, msg));
 	}
@@ -87,3 +111,4 @@ public class BatailleTest {
 		}
 	}
 }
+
