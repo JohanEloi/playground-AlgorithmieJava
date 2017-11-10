@@ -26,8 +26,8 @@ public class System {
 	
 	public static void initPath(String path) {
 		try {
-			Reader reader = //new FileReader(path); 
-					new InputStreamReader(System.class.getClassLoader().getResourceAsStream(path));
+			Reader reader = new FileReader(path); 
+					//new InputStreamReader(System.class.getClassLoader().getResourceAsStream(path));
 			in = reader;
 		} catch (Exception e) {
 			e.printStackTrace();
