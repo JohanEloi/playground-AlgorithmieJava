@@ -19,7 +19,7 @@ public class BatailleTest {
 			System.initPath("int.txt");
 			
 			Bataille.main(new String[0]);
-
+			msg("My personal Yoda, you are. 🙏", "* ● ¸ .　¸. :° ☾ ° 　¸. ● ¸ .　　¸.　:. • ");
 			String res = baos.toString().trim();
 			Assert.assertEquals("Test 1 ...", "A", res);
 			
