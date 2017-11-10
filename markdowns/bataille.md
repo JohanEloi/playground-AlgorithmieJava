@@ -40,7 +40,7 @@ Puis dans une boucle lire les cartes des joueurs A et B
 		}
 ```		
 
-:bulb: il ne faut pas oublier le `sc.nextLine()` pour passer à la ligne suivante.
+💡 il ne faut pas oublier le `sc.nextLine()` pour passer à la ligne suivante.
 :::
 
 
