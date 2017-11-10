@@ -49,11 +49,11 @@ public class BatailleTest {
 	}
 
 	private static void msg(String channel, String msg) {
-		System.out.println(String.format("TECHIO> message --channel \"%s\" \"%s\"", channel, msg));
+		java.lang.System.out.println(String.format("TECHIO> message --channel \"%s\" \"%s\"", channel, msg));
 	}
 
 	private static void success(boolean success) {
-		System.out.println(String.format("TECHIO> success %s", success));
+		java.lang.System.out.println(String.format("TECHIO> success %s", success));
 	}
 
 	// check if a string exists in a text file
