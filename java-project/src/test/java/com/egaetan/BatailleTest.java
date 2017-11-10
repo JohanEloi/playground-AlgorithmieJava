@@ -34,7 +34,7 @@ public class BatailleTest {
 				msg("Résultats", "✔ "+ testName);
 			} catch (AssertionError ae) {				
 				isAllOk = false;
-				msg("Résultats", "✘" + ae.getMessage());
+				msg("Résultats", "✘ " + ae.getMessage());
 			}
 		}
 	}
