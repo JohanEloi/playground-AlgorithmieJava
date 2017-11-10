@@ -32,8 +32,7 @@ public class BatailleTest {
 				Assert.assertEquals(testName, expected, res);
 
 				msg("Résultats", "✔ "+ testName);
-			} catch (AssertionError ae) {
-				success(false);
+			} catch (AssertionError ae) {				
 				isAllOk = false;
 				msg("Résultats", "✘" + ae.getMessage());
 			}
@@ -55,11 +54,12 @@ public class BatailleTest {
 		runTest("bataille5.txt", "100 valeurs", "A");
 		runTest("bataille6.txt", "Pas de triches", "A");
 
-		msg("Succès", "#Bataille gagnée 🃏");
+		
 
 		//			Assert.assertEquals("Running Universe.countAllStars(2, 3)...", 5, Universe.countAllStars(2, 3));
 		//			Assert.assertEquals("Running Universe.countAllStars(9, -3)...", 6, Universe.countAllStars(9, -3));
 		if (runner.isAllOk) {
+			msg("Succès", "#Bataille gagnée 🃏");
 			success(true);
 		}
 		else {
