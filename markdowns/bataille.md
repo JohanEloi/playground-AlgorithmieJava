@@ -1,4 +1,6 @@
-# Bataille
+# Bataille [Facile]
+
+## Inspiré de [BattleDev](https://battledev.blogdumoderateur.com/) Novembre2017
 
 
 ## Enoncé
