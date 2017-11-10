@@ -11,7 +11,7 @@ import java.util.*;
 
 public class Bataille {
 	
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		String  line;
 		Scanner sc = new Scanner(System.in);
 		while(sc.hasNextLine()) {
