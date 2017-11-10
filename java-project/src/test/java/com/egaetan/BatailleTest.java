@@ -29,8 +29,9 @@ public class BatailleTest {
 	public void test() throws FileNotFoundException {
 		try {
 			msg("Succès", "Le code compile");
-			runTest("bataille1.txt", "Simple A vainqueur", "A");
-			runTest("bataille2.txt", "Simple B vainqueur", "B");
+			runTest("bataille1.txt", "Simple test, A vainqueur", "A");
+			runTest("bataille2.txt", "Simple test, B vainqueur", "B");
+			runTest("bataille3.txt", "Simple test 2, B vainqueur", "B");
 			
 			
 			
