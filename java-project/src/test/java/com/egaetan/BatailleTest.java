@@ -25,6 +25,8 @@ public class BatailleTest {
 			runTest("bataille5.txt", "100 valeurs", "A");
 			runTest("bataille6.txt", "Pas de triches", "A");
 			
+			msg("Succès", "Bataille gagnée 🃏");
+			  
 			
 			
 			
