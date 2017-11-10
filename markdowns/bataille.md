@@ -45,11 +45,36 @@ Puis dans une boucle lire les cartes des joueurs A et B
 :::
 
 ::: Compter les points
-Il faut ensuite compter les points de chacun des joueurs
+Il faut compter les points de chacun des joueurs en dehors de la boucle
+``` java
+	int pointsJoueurA = 0;
+	int pointsJoueurB = 0;
+	for (int i = 0; i< n; i++) {		
+		int carteJoueurA = sc.nextInt();
+		int carteJoueurB = sc.nextInt();
+
+		if (carteJoueurA > carteJoueurB) {
+			pointsJoueurA++;
+		}
+		else if (carteJoueurB > carteJoueurA) {
+			pointsJoueurB++;
+		}
+		
+		sc.nextLine();
+	}
+```	
+💡 il ne faut pas oublier le cas d'égalité, où les scores des joueurs ne changent pas.
+
 :::
 
 ::: Afficher le résultat
 :::
+``` java
+	System.out.println(pointsJoueurA > pointsJoueurB ? "A" : "B");
+```
+Il faut écrire `A` ou `B` suivant leurs points respectifs.
+
+💡  On peut ici utiliser une expression ternaire, qui montre efficacement l'alternative.
 
 :::
 
