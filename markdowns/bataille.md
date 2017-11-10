@@ -74,7 +74,7 @@ Les variables comptant les points sont définies en dehors de la boucle
 ``` java
 	System.out.println(pointsJoueurA > pointsJoueurB ? "A" : "B");
 ```
-Il faut écrire `A` ou `B` suivant leurs points respectifs.
+Il faut écrire `"A"` ou `"B"` suivant leurs points respectifs.
 
 💡  On peut ici utiliser une expression ternaire, qui montre efficacement l'alternative.
 
