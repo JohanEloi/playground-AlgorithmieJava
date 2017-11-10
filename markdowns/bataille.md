@@ -45,7 +45,9 @@ Puis dans une boucle lire les cartes des joueurs A et B
 :::
 
 ::: Compter les points
-Il faut compter les points de chacun des joueurs en dehors de la boucle
+Il faut compter les points de chacun des joueurs dans la boucle.
+Les variables comptant les points sont définies en dehors de la boucle
+
 ``` java
 	int pointsJoueurA = 0;
 	int pointsJoueurB = 0;
@@ -63,12 +65,12 @@ Il faut compter les points de chacun des joueurs en dehors de la boucle
 		sc.nextLine();
 	}
 ```	
-💡 il ne faut pas oublier le cas d'égalité, où les scores des joueurs ne changent pas.
+💡 il ne faut pas oublier le cas d'égalité, où les scores des joueurs ne changent pas. Ici, il est implicite, grâce au `else if`.
 
 :::
 
 ::: Afficher le résultat
-:::
+
 ``` java
 	System.out.println(pointsJoueurA > pointsJoueurB ? "A" : "B");
 ```
@@ -77,7 +79,7 @@ Il faut écrire `A` ou `B` suivant leurs points respectifs.
 💡  On peut ici utiliser une expression ternaire, qui montre efficacement l'alternative.
 
 :::
-
+:::
 
 
 @[Bataille]({"stubs": ["src/main/java/com/egaetan/Bataille.java"], "command": "com.egaetan.BatailleTest#test"})
