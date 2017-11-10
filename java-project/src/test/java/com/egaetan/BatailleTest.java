@@ -11,21 +11,32 @@ import org.junit.Test;
 
 public class BatailleTest {
 
+	
+	private void runTest(String inputFile, String testName, String expected)  throws FileNotFoundException {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		System.out = new PrintStream(baos);
+		System.initPath(inputFile);
+				
+		Bataille.main(new String[0]);
+		
+		String res = baos.toString().trim();
+		Assert.assertEquals(testName, expected, res);
+	}
+	
 	@Test
 	public void test() throws FileNotFoundException {
 		try {
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			System.out = new PrintStream(baos);
-			System.initPath("int.txt");
+			msg("Succès", "Le code compile");
+			runTest("int.txt", "Simple A vainqueur", "A");
+			runTest("bataille2.txt", "Simple B vainqueur", "B");
 			
-			Bataille.main(new String[0]);
-			msg("My personal Yoda, you are. 🙏", "* ● ¸ .　¸. :° ☾ ° 　¸. ● ¸ .　　¸.　:. • ");
-			String res = baos.toString().trim();
-			Assert.assertEquals("Test 1 ...", "A", res);
+			
+			
+			
 			
 //			Assert.assertEquals("Running Universe.countAllStars(2, 3)...", 5, Universe.countAllStars(2, 3));
 //			Assert.assertEquals("Running Universe.countAllStars(9, -3)...", 6, Universe.countAllStars(9, -3));
-			success(false);
+			success(true);
 
 			/*if (existsInFile("Arrays.stream(galaxies).sum()", new File("./src/main/java/com/yourself/Universe.java"))) {
 				msg("My personal Yoda, you are. 🙏", "* ● ¸ .　¸. :° ☾ ° 　¸. ● ¸ .　　¸.　:. • ");
@@ -44,7 +55,7 @@ public class BatailleTest {
 		} catch (AssertionError ae) {
 			success(false);
 			msg("Oops! 🐞", ae.getMessage());
-			msg("Hint 💡", "Did you properly accumulate all stars into 'totalStars'? 🤔");
+			msg("Hint 💡", "");
 		}
 	}
 
