@@ -64,7 +64,7 @@ public class BatailleTest {
 		String res = baos.toString().trim();
 		Assert.assertEquals(testName, expected, res);
 		
-		msg("Succès :smile:", "✔ "+ testName);
+		msg("Succès", "✔ "+ testName);
 	}
 	
 	private static void msg(String channel, String msg) {
