@@ -22,7 +22,7 @@ public class BatailleTest {
 		String res = baos.toString().trim();
 		Assert.assertEquals(testName, expected, res);
 		
-		msg("Succès", testName);
+		msg("Succès", ":white_check_mark: "+ testName);
 	}
 	
 	@Test
