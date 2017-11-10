@@ -23,6 +23,7 @@ public class BatailleTest {
 			runTest("bataille3.txt", "Test 2", "B");
 			runTest("bataille4.txt", "Ex-Aequos", "A");
 			runTest("bataille5.txt", "100 valeurs", "A");
+			runTest("bataille6.txt", "Pas de triches", "A");
 			
 			
 			
