@@ -33,12 +33,12 @@ Il faut tout d'abord lire les données d'entrées
 
 Puis dans une boucle lire les cartes des joueurs A et B
 ``` java
-		for (int i = 0; i< n; i++) {		
-			int carteJoueurA = sc.nextInt();
-			int carteJoueurB = sc.nextInt();
-		
-			sc.nextLine();
-		}
+	for (int i = 0; i< n; i++) {		
+		int carteJoueurA = sc.nextInt();
+		int carteJoueurB = sc.nextInt();
+
+		sc.nextLine();
+	}
 ```		
 
 💡 il ne faut pas oublier le `sc.nextLine()` pour passer à la ligne suivante.
