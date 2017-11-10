@@ -12,18 +12,7 @@ import org.junit.Test;
 public class BatailleTest {
 
 	
-	private void runTest(String inputFile, String testName, String expected)  throws FileNotFoundException {
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		System.out = new PrintStream(baos);
-		System.initPath(inputFile);
-				
-		Bataille.main(new String[0]);
-		
-		String res = baos.toString().trim();
-		Assert.assertEquals(testName, expected, res);
-		
-		msg("Succès", "✔ "+ testName);
-	}
+	
 	
 	@Test
 	public void test() throws FileNotFoundException {
@@ -31,8 +20,8 @@ public class BatailleTest {
 			msg("Succès", "Le code compile");
 			runTest("bataille1.txt", "Simple test, A vainqueur", "A");
 			runTest("bataille2.txt", "Simple test, B vainqueur", "B");
-			runTest("bataille3.txt", "Simple test 2, B vainqueur", "B");
-			runTest("bataille4.txt", "Simple test 2, B vainqueur", "B");
+			runTest("bataille3.txt", "Test 2", "B");
+			runTest("bataille4.txt", "Ex-Aequo B vainqueur", "B");
 			
 			
 			
@@ -63,6 +52,19 @@ public class BatailleTest {
 		}
 	}
 
+	private void runTest(String inputFile, String testName, String expected)  throws FileNotFoundException {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		System.out = new PrintStream(baos);
+		System.initPath(inputFile);
+				
+		Bataille.main(new String[0]);
+		
+		String res = baos.toString().trim();
+		Assert.assertEquals(testName, expected, res);
+		
+		msg("Succès", "✔ "+ testName);
+	}
+	
 	private static void msg(String channel, String msg) {
 		java.lang.System.out.println(String.format("TECHIO> message --channel \"%s\" \"%s\"", channel, msg));
 	}
