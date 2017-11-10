@@ -65,7 +65,7 @@ public class BatailleTest {
 		else {
 			success(false);
 			msg("Oops! 🐞", "Certains validateurs ne passent pas. :(");
-			msg("Aide 💡", "La section explications peut aider.");
+			//msg("Aide 💡", "");
 		}
 
 		/*if (existsInFile("Arrays.stream(galaxies).sum()", new File("./src/main/java/com/yourself/Universe.java"))) {
