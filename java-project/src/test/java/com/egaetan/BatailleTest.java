@@ -59,7 +59,7 @@ public class BatailleTest {
 		//			Assert.assertEquals("Running Universe.countAllStars(2, 3)...", 5, Universe.countAllStars(2, 3));
 		//			Assert.assertEquals("Running Universe.countAllStars(9, -3)...", 6, Universe.countAllStars(9, -3));
 		if (runner.isAllOk) {
-			msg("Succès", "#Bataille gagnée 🃏");
+			msg("Succès", "Bataille gagnée 🃏");
 			success(true);
 		}
 		else {
