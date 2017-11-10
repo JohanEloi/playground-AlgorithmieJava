@@ -16,7 +16,7 @@ public class BatailleTest {
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			System.out = new PrintStream(baos);
-			System.initPath("src/test/resources/in.txt");
+			System.initPath("src/test/resources/int.txt");
 			
 			Bataille.main(new String[0]);
 
