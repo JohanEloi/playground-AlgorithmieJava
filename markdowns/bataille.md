@@ -23,6 +23,7 @@ Le caractère A ou le caractère B représentant le gagnant de la partie.
 
 ::: Explications
 
+::: Lecture des entrées
 Il faut tout d'abord lire les données d'entrées
 ``` java
 	Scanner sc = new Scanner(System.in);
@@ -41,9 +42,13 @@ Puis dans une boucle lire les cartes des joueurs A et B
 ```		
 
 💡 il ne faut pas oublier le `sc.nextLine()` pour passer à la ligne suivante.
+:::
 
-::: Suite
+::: Compter les points
 Il faut ensuite compter les points de chacun des joueurs
+:::
+
+::: Afficher le résultat
 :::
 
 :::
