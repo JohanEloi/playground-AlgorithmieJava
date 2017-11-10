@@ -41,7 +41,13 @@ Puis dans une boucle lire les cartes des joueurs A et B
 ```		
 
 💡 il ne faut pas oublier le `sc.nextLine()` pour passer à la ligne suivante.
+
+::: Suite
+Il faut ensuite compter les points de chacun des joueurs
 :::
+
+:::
+
 
 
 @[Bataille]({"stubs": ["src/main/java/com/egaetan/Bataille.java"], "command": "com.egaetan.BatailleTest#test"})
