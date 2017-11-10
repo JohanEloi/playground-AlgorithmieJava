@@ -23,6 +23,13 @@ Le caractère A ou le caractère B représentant le gagnant de la partie.
 
 ::: Explications
 
+Il faut tout d'abord lire les données d'entrées
+'''
+    Scanner sc = new Scanner(System.in);
+		int nombreDeTours = sc.nextInt();
+		sc.nextLine();
+'''    
+
 :::
 
 
