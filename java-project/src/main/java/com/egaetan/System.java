@@ -13,7 +13,7 @@ public class System {
 	public static PrintStream err = java.lang.System.err;
 	
 	static {
-		init();
+		//init();
 	}
 
 	private static void init() {
