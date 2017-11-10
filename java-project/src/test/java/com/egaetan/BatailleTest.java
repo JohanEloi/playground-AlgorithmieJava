@@ -22,7 +22,7 @@ public class BatailleTest {
 		String res = baos.toString().trim();
 		Assert.assertEquals(testName, expected, res);
 		
-		msg("Succès", "&#9986; "+ testName);
+		msg("Succès", "✔ "+ testName);
 	}
 	
 	@Test
