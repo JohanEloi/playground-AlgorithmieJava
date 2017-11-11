@@ -1,26 +1,30 @@
-# Bataille [Facile]
-
-## Inspiré de [BattleDev](https://battledev.blogdumoderateur.com/) Novembre2017
+# Robots Lunaires [Facile]
 
 
 ## Enoncé
 
-Un soir, deux frères profitent de l'absence de leurs parents pour commander des burgers. Pour ne pas laisser de trace, l'un d'entre eux doit descendre les poubelles avant minuit. Ils décident de se départager au jeu de la bataille. Le principe est simple, chaque joueur a le même nombre de cartes et à chaque tour, chaque joueur présente une carte. Celui qui a la carte de plus grande valeur remporte le point. Si les deux cartes ont la même valeur, personne ne remporte le point. Le gagnant du jeu est celui qui a le plus de points à la fin.
-
-L'objectif de ce challenge est de déterminer qui ne descendra pas les poubelles ce soir (gagnant de la partie).
-
-On va nommer les deux frères A et B. Pour simplifier, nous allons considérer que les cartes ont des valeurs pouvant aller de 1 à 10. Nous vous garantissons qu'il y a bien un gagnant à la fin de la partie (pas d'égalité possible entre les deux joueurs).
+Une escouade de robots rovers doit être débarquée par la NASA sur un plateau de la lune 🌘.
+Ce plateau, curieusement rectangulaire, doit être parcouru par le
+mobiles afin que leurs caméras embarquées puissent avoir une vue complète du 
+terrain environnant à renvoyer sur Terre.
+La position et l'emplacement d'un mobile sont représentés par une combinaison de x et y, ses coordonnées et une lettre représentant l'un des quatre points cardinaux (N, W, E, S). Le plateau est divisé en une grille pour simplifier la navigation. Un
+la position d'exemple pourrait être 0, 0, N, ce qui signifie que le mobile est en bas à gauche et face au nord.
+Afin de contrôler un rover, la NASA envoie une simple chaîne de lettres. 
+Les lettres possibles sont 'L', 'R' et 'M'. 'L' et 'R' font tourner le robot de 90 degrés gauche ou droit respectivement, sans bouger de son emplacement actuel.
+«M» signifie avancer d'un point de grille et maintenir le même cap.
+Supposons que le carré directement au nord de (x, y) est (x, y + 1).
 
 ## Format des données
 
 ### Entrée
 
-**Ligne 1** : un entier N compris entre 10 et 100 représentant le nombre de tours.
+**Ligne 1** : Les coordonnées en haut à droite du plateau, les coordonnées en bas à gauche sont supposées être 0, 0.
 
-**Lignes 2 à N+1** : deux entiers compris entre 1 et 10 séparés par un espace représentant la carte du joueur A et celle du joueur B.
+**Lignes 2 à 2xN+1 ** : Deux lignes par robots, la première ligne donne les coordonnées de départ du robot et son oroentation, la seconde ligne donne une série d'instructions. La position est composée de deux entiers et d'une lettre séparés par des espaces,
+correspondant aux coordonnées x et y et à l'orientation du robot.
 
 ### Sortie
-Le caractère A ou le caractère B représentant le gagnant de la partie.
+Pour chaque robot, ses coordonnées finales et son orientation. Chaque robot execute ses instructions séquentiellement, ce qui signifie que le deuxième robot ne commencera à bouger que lorsque le premier aura fini de bouger.
 
 
 ::: Explications
