@@ -28,7 +28,7 @@ Un entier représentant le prix le plus bas du produit **P** dans la liste.
 ::: Explications
 
 ::: Lecture des entrées
-Il faut tout d'abord lire les données d'entrées
+Il faut tout d'abord lire le nombre de produits proposés et le nom du produit recherché
 ``` java
 	Scanner sc = new Scanner(System.in);
 	int nombreProduits = sc.nextInt();
@@ -37,7 +37,7 @@ Il faut tout d'abord lire les données d'entrées
 	sc.nextLine();
 ```
 
-Puis dans une boucle lire les cartes des joueurs A et B
+Puis dans une boucle lire les produits et leur prix
 ``` java
 	for (int i = 0; i < nombreProduits; i++) {
 		line = sc.nextLine();
@@ -59,7 +59,7 @@ A l'intérieur de la boucle, il faut d'abord savoir si le produit courant corres
 	}
 ```	
 
-🔥 String.equals(String other) pour vérifier l'égalité entre deux chaînes de caractères
+🔥 `String.equals(String other)` pour vérifier l'égalité entre deux chaînes de caractères
 
 Il faut chercher le prix le plus petit.
 On compare chaque prix au plus petit prix déjà trouvé.
