@@ -9,6 +9,6 @@ Les exercices proposés ici sont de difficulté différentes.
 ## Faciles
 + Bataille
 + Prix le plus bas
-+ Exploreurs Lunaires
++ Robots Lunaires
 
 
