@@ -88,4 +88,4 @@ Il faut écrire `"A"` ou `"B"` suivant leurs points respectifs.
 :::
 
 
-@[Bataille]({"stubs": ["src/main/java/com/egaetan/Bataille.java"], "command": "com.egaetan.BatailleTest#test"})
+@[Robots Lunaires]({"stubs": ["src/main/java/com/egaetan/RobotsLunaires.java"], "command": "com.egaetan.RobotsLunairesTest#test"})
