@@ -37,7 +37,7 @@ public class Runner {
 			runnerThread.start();
 			
 			try {
-				runnerThread.join(200);
+				runnerThread.join(1000);
 				if (runnerThread.isAlive()) {
 					msg("Résultats", "✘ " + testName + " - Temps dépassé");
 					isAllOk = false;
@@ -59,6 +59,7 @@ public class Runner {
 		} catch (AssertionError ae) {				
 			isAllOk = false;
 			msg("Résultats", "✘ " + ae.getMessage());
+			
 			String logsOut = logs.toString().trim();
 			if (logsOut.length() > 0) {
 				Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
