@@ -5,7 +5,7 @@
 
 Une escouade de robots rovers doit être débarquée par la NASA sur un plateau de la lune 🌘.
 
-Ce plateau, curieusement rectangulaire, doit être parcouru par les robots afin que leurs caméras embarquées puissent avoir une vue complète du terrain environnant à renvoyer sur Terre.
+Ce plateau, curieusement rectangulaire, doit être parcouru par les robots afin que leurs caméras embarquées puissent avoir une vue complète du terrain environnant à renvoyer sur Terre. 🌍
 
 La position et l'emplacement d'un robot sont représentés par une combinaison de x et y, ses coordonnées et une lettre représentant l'un des quatre points cardinaux (N, W, E, S). Le plateau est divisé en une grille pour simplifier la navigation.
 
