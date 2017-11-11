@@ -7,8 +7,8 @@ Avant de commmencer ce playground, vous devez déjà connaitre des bases de prog
 
 Les exercices proposés ici sont de difficulté différentes.
 ## Faciles
-Bataille
-Prix le plus bas
-Mars Lander
++ Bataille
++ Prix le plus bas
++ Exploreurs Lunaires
 
 
