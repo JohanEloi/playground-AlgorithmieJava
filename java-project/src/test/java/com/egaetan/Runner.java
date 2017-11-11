@@ -62,6 +62,9 @@ public class Runner {
 			
 			String logsOut = logs.toString().trim();
 			if (logsOut.length() > 0) {
+				if (logsOut.length() > 10 * 1024) {
+					logsOut = logsOut.substring(0, 10 * 1024);
+				}
 				Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
 			}
 		}
