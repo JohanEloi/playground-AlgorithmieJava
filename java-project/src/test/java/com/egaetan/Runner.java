@@ -24,13 +24,14 @@ public class Runner {
 
 	public void run(Supplier<Reader> inputs, String testName, String expected) {
 		System.initSystemIn(inputs);
-		try {
-			ByteArrayOutputStream baos = new ByteArrayOutputStream(10 * 1024);
-			System.out = new PrintStream(baos);
-			
 
-			ByteArrayOutputStream logs = new ByteArrayOutputStream(10 * 1024);
-			System.err = new PrintStream(logs);
+		ByteArrayOutputStream baos = new ByteArrayOutputStream(10 * 1024);
+		System.out = new PrintStream(baos);
+		
+		
+		ByteArrayOutputStream logs = new ByteArrayOutputStream(10 * 1024);
+		System.err = new PrintStream(logs);
+		try {
 
 			Thread runnerThread = new Thread(this::doRun, "Runner");
 			runnerThread.start();
@@ -58,6 +59,10 @@ public class Runner {
 		} catch (AssertionError ae) {				
 			isAllOk = false;
 			msg("Résultats", "✘ " + ae.getMessage());
+			String logsOut = logs.toString().trim();
+			if (logsOut.length() > 0) {
+				Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
+			}
 		}
 	}
 
