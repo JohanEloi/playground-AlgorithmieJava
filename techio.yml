@@ -1,27 +1,17 @@
-title : Algorithmie en Java
-
-# Table of content
+title: Algorithmie en Java
 plan:
-  - title: Bienvenue # Set the page title (only displayed if your contribution has several pages)
-    statement: markdowns/welcome.md # Set the file path to the page content
-  - title: Bataille # Set the page title (only displayed if your contribution has several pages)
-    statement: markdowns/bataille.md # Set the file path to the page content
-  - title: Prix le plus bas # Set the page title (only displayed if your contribution has several pages)
-    statement: markdowns/prix_le_plus_bas.md # Set the file path to the page content
-  - title: Robots lunaires # Set the page title (only displayed if your contribution has several pages)
-    statement: markdowns/explorateursLunaire.md # Set the file path to the page content
-
-    
-#  - title: Another Page
-#    statement: markdowns/another-page.md
-
-
-# Settings for your programming projects and the associated Docker images
+- title: Bienvenue
+  statement: markdowns/welcome.md
+- title: Bataille
+  statement: markdowns/bataille.md
+- title: Prix le plus bas
+  statement: markdowns/prix_le_plus_bas.md
+- title: !!binary |-
+    Um9ib3RzIGx1bmFpcmVzIPCfmoA=
+  statement: markdowns/explorateursLunaire.md
 projects:
   java:
-    root: /java-project # Set the root path to your Java project
-
-    # Set the docker image. This image runs JUnit tests using this syntax:
-    # @[Code Editor Title]({"stubs": ["EditorFile1.java", "EditorFile2.java", ...], "command": "MyJUnitClass#myMethod"})
-    # More details here: https://github.com/TechDotIO/java-maven3-junit4-runner
-    runner: techio/java-maven3-junit4-runner:1.1.3-java-8
+    root: /java-project
+    runner:
+      name: techio/java-maven3-junit4-runner
+      version: 1.1.3-java-8
