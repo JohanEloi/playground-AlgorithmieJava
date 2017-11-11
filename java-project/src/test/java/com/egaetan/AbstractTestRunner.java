@@ -1,5 +1,8 @@
 package com.egaetan;
 
+import java.io.InputStreamReader;
+import java.io.Reader;
+
 import org.junit.After;
 import org.junit.Before;
 
@@ -38,8 +41,17 @@ public class AbstractTestRunner {
 		communication.success(true);
 	}
 
-	protected void runTest(String inputFile, String testName, String expected) {
-		runner.run(inputFile, testName, expected);
+	protected void runTestFromFile(String inputFile, String testName, String expected) {
+		runner.run(() -> fromFile(inputFile), testName, expected);
+	}
+
+	private Reader fromFile(String path) {
+		try {
+			Reader reader = new InputStreamReader(System.class.getClassLoader().getResourceAsStream(path));
+			return reader;
+		} catch (Exception e) {
+			throw new RuntimeException("Test files in error", e);
+		}
 	}
 
 	protected void msg(String title, String texte) {

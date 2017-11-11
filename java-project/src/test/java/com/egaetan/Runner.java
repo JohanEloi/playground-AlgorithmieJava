@@ -2,7 +2,9 @@ package com.egaetan;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.io.Reader;
 import java.util.Arrays;
+import java.util.function.Supplier;
 
 import org.junit.Assert;
 
@@ -20,8 +22,8 @@ public class Runner {
 	}
 
 
-	public void run(String inputFile, String testName, String expected) {
-		System.initPath(inputFile);
+	public void run(Supplier<Reader> inputs, String testName, String expected) {
+		System.initSystemIn(inputs);
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream(10 * 1024);
 			System.out = new PrintStream(baos);
@@ -34,7 +36,7 @@ public class Runner {
 			runnerThread.start();
 			
 			try {
-				runnerThread.join(100);
+				runnerThread.join(200);
 				if (runnerThread.isAlive()) {
 					msg("Résultats", "✘ " + testName + " - Temps dépassé");
 					isAllOk = false;
@@ -62,7 +64,10 @@ public class Runner {
 
 	private void doRun() {
 		try {
+			long start = java.lang.System.nanoTime();
 			underTest.run();
+			long end = java.lang.System.nanoTime();
+			//java.lang.System.err.println((end - start)/1000000 + " elapsed");
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new AssertionError("Exception :" + e.getMessage());
