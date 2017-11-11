@@ -25,11 +25,11 @@ public class Runner {
 	public void run(Supplier<Reader> inputs, String testName, String expected) {
 		System.initSystemIn(inputs);
 
-		ByteArrayOutputStream baos = new ByteArrayOutputStream(10 * 1024);
+		ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
 		System.out = new PrintStream(baos);
 		
 		
-		ByteArrayOutputStream logs = new ByteArrayOutputStream(10 * 1024);
+		ByteArrayOutputStream logs = new ByteArrayOutputStream(1024);
 		System.err = new PrintStream(logs);
 		try {
 
@@ -73,6 +73,7 @@ public class Runner {
 			long start = java.lang.System.nanoTime();
 			underTest.run();
 			long end = java.lang.System.nanoTime();
+			msg("Résultats", (end - start)/1000000 + " elapsed");
 			//java.lang.System.err.println((end - start)/1000000 + " elapsed");
 		} catch (Exception e) {
 			e.printStackTrace();
