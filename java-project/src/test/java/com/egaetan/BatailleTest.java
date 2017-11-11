@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,7 +27,19 @@ public class BatailleTest {
 				System.out = new PrintStream(baos);
 				System.initPath(inputFile);
 
-				underTest.run();
+				Thread runnerThread = new Thread(() -> underTest.run());
+				runnerThread.start();
+				
+				try {
+					runnerThread.join(100);
+					if (runnerThread.isAlive()) {
+						msg("Résultats", "✘ " + testName + " - Temps dépassé");
+						isAllOk = false;
+					}
+				} catch (InterruptedException e) {
+					throw new RuntimeException("Should never happen...", e);
+				}
+				
 
 				String res = baos.toString().trim();
 				Assert.assertEquals(testName, expected, res);
