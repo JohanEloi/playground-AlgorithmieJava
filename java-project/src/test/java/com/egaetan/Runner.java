@@ -25,6 +25,9 @@ public class Runner {
 			System.out = new PrintStream(baos);
 			System.initPath(inputFile);
 
+			ByteArrayOutputStream logs = new ByteArrayOutputStream();
+			System.err = new PrintStream(logs);
+
 			Thread runnerThread = new Thread(() -> underTest.run());
 			runnerThread.start();
 			
@@ -39,7 +42,11 @@ public class Runner {
 				throw new RuntimeException("Should never happen...", e);
 			}
 			
-
+			String logsOut = logs.toString().trim();
+			if (logsOut.length() > 0) {
+				msg("Log - "+testName, logsOut);
+			}
+			
 			String res = baos.toString().trim();
 			Assert.assertEquals(testName, expected, res);
 
