@@ -59,7 +59,7 @@ A l'intérieur de la boucle, il faut d'abord savoir si le produit courant corres
 	}
 ```	
 
-💡 String.equals(String other) pour vérifier l'égalité entre deux chaînes de caractères
+🔥 String.equals(String other) pour vérifier l'égalité entre deux chaînes de caractères
 
 Il faut chercher le prix le plus petit.
 On compare chaque prix au plus petit prix déjà trouvé.
@@ -77,6 +77,28 @@ On choisit de l'initialiser avec une valeur très grande.
 ```java
     int minimum = Integer.MAX_VALUE;
 ```
+
+:::
+
+::: Code
+Tout ensemble :
+
+``` java
+    int minimum = Integer.MAX_VALUE;
+    for (int i = 0; i < nombreProduits; i++) {
+		line = sc.nextLine();
+		String produitCourant = line.split(" ")[0];
+		int prix = Integer.parseInt(line.split(" ")[1]);
+	    if (produitCourant.equals(nomProduit) && prix < minimum) {
+	        minimum = prix
+	    }
+	}
+	System.out.println(minimum);
+```	
+
+
+💡 Il faut déclarer et initialiser la variable `minimum` en dehors de la boucle.
+
 
 :::
 
