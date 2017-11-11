@@ -46,8 +46,9 @@ Puis dans une boucle lire les cartes des joueurs A et B
 	}
 ```		
 
-💡 `String[] java.lang.String.split(String regex)` pour séparer la ligne en un tableau
-`Integer.parseInt(String s)` pour transformer une chaîne de caractères en nombre
+💡 
+>`String[] java.lang.String.split(String regex)` pour séparer la ligne en un tableau
+>`Integer.parseInt(String s)` pour transformer une chaîne de caractères en nombre
 :::
 
 ::: Chercher le prix le plus bas
@@ -57,6 +58,8 @@ A l'intérieur de la boucle, il faut d'abord savoir si le produit courant corres
 	if (produitCourant.equals(nomProduit)) {
 	}
 ```	
+
+💡 String.equals(String other) pour vérifier l'égalité entre deux chaînes de caractères
 
 Il faut chercher le prix le plus petit.
 On compare chaque prix au plus petit prix déjà trouvé.
@@ -68,7 +71,6 @@ Si il est plus petit, on met à jour le plus petit prix trouvé.
 	}
 ```	
 
-💡 String.equals(String other) pour vérifier l'égalité entre deux chaînes de caractères
 
 Il ne faut pas oublier de déclarer et d'initialiser la variable minimum.
 On choisit de l'initialiser avec une valeur très grande.
