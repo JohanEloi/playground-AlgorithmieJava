@@ -22,7 +22,7 @@ L'objectif de ce challenge est de déterminer le prix le plus bas pour un produi
 **Lignes 3 à N+2** : une chaîne comprenant entre 2 et 50 caractères et un entier séparés par un espace représentant respectivement le nom d'un produit et le prix associé. Le produit **P** apparaîtra au moins une fois dans la liste.
 
 ### Sortie
-Un entier représentant le prix le plus bas du produit P dans la liste.
+Un entier représentant le prix le plus bas du produit **P** dans la liste.
 
 
 ::: Explications
