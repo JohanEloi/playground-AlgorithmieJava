@@ -22,19 +22,19 @@ public class AbstractTestRunner {
 	@After
 	public void conditionVictory() {
 		if (runner.isAllOk) {
-			msg("Succès", this.victoryMsg);
 			success();
 		} else {
-			communication.success(false);
 			fail();
 		}
 	}
 
 	protected void fail() {
 		msg("Oops! 🐞", "Certains validateurs ne passent pas. :(");
+		communication.success(false);
 	}
 
 	protected void success() {
+		msg("Succès", this.victoryMsg);
 		communication.success(true);
 	}
 

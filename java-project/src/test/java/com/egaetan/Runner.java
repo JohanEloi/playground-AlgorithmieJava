@@ -2,6 +2,7 @@ package com.egaetan;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 
 import org.junit.Assert;
 
@@ -44,7 +45,7 @@ public class Runner {
 			
 			String logsOut = logs.toString().trim();
 			if (logsOut.length() > 0) {
-				msg("Log - "+testName, logsOut);
+				Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
 			}
 			
 			String res = baos.toString().trim();
