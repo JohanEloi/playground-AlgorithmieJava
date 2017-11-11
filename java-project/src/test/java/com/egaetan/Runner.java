@@ -29,7 +29,7 @@ public class Runner {
 			ByteArrayOutputStream logs = new ByteArrayOutputStream(10 * 1024);
 			System.err = new PrintStream(logs);
 
-			Thread runnerThread = new Thread(() -> underTest.run());
+			Thread runnerThread = new Thread(this::doRun, "Runner");
 			runnerThread.start();
 			
 			try {
@@ -55,6 +55,16 @@ public class Runner {
 		} catch (AssertionError ae) {				
 			isAllOk = false;
 			msg("Résultats", "✘ " + ae.getMessage());
+		}
+	}
+
+
+	private void doRun() {
+		try {
+			underTest.run();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new AssertionError("Exception :" + e.getMessage());
 		}
 	}
 	

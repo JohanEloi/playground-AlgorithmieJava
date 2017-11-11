@@ -11,7 +11,7 @@ public class AbstractTestRunner {
 
 	public AbstractTestRunner(Runnable underTest, String victoryMsg) {
 		this.victoryMsg = victoryMsg;
-		runner = new Runner(communication, () -> new Bataille().main());
+		runner = new Runner(communication, () -> underTest.run());
 	}
 
 	@Before

@@ -5,7 +5,7 @@ import org.junit.Test;
 public class PrixLePlusBasTest extends AbstractTestRunner {
 
 	public PrixLePlusBasTest() {
-		super(() -> new Bataille().main(), "Bataille gagnée 🃏");
+		super(() -> new PrixLePlusBas().main(), "Prix remporté ! € $");
 	}
 	
 	@Test
