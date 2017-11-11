@@ -19,7 +19,7 @@ L'objectif de ce challenge est de déterminer le prix le plus bas pour un produi
 
 **Ligne 2** : une chaîne **P** comprenant entre 2 et 50 caractères représentant le produit recherché.
 
-**Lignes 3 à N+2** : une chaîne comprenant entre 2 et 50 caractères et un entier séparés par un espace représentant respectivement le nom d'un produit et le prix associé. Le produit P apparaîtra au moins une fois dans la liste.
+**Lignes 3 à N+2** : une chaîne comprenant entre 2 et 50 caractères et un entier séparés par un espace représentant respectivement le nom d'un produit et le prix associé. Le produit **P** apparaîtra au moins une fois dans la liste.
 
 ### Sortie
 Un entier représentant le prix le plus bas du produit P dans la liste.
@@ -86,4 +86,4 @@ Il faut écrire `"A"` ou `"B"` suivant leurs points respectifs.
 :::
 
 
-@[Bataille]({"stubs": ["src/main/java/com/egaetan/PrixLePlusBas.java"], "command": "com.egaetan.PrixLePlusBasTest#test"})
+@[Prix le plus bas]({"stubs": ["src/main/java/com/egaetan/PrixLePlusBas.java"], "command": "com.egaetan.PrixLePlusBasTest#test"})
