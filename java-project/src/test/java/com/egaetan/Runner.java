@@ -76,7 +76,7 @@ public class Runner {
 			long start = java.lang.System.nanoTime();
 			underTest.run();
 			long end = java.lang.System.nanoTime();
-			msg("Résultats", (end - start)/1000000 + " elapsed");
+			//msg("Résultats", (end - start)/1000000 + " elapsed");
 			//java.lang.System.err.println((end - start)/1000000 + " elapsed");
 		} catch (Exception e) {
 			e.printStackTrace();
