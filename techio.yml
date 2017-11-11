@@ -6,6 +6,9 @@ plan:
     statement: markdowns/welcome.md # Set the file path to the page content
   - title: Bataille # Set the page title (only displayed if your contribution has several pages)
     statement: markdowns/bataille.md # Set the file path to the page content
+  - title: Prix le plus bas # Set the page title (only displayed if your contribution has several pages)
+    statement: markdowns/prix_le_plus_bas.md # Set the file path to the page content
+
 #  - title: Another Page
 #    statement: markdowns/another-page.md
 
