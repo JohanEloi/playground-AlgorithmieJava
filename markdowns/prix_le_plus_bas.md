@@ -31,58 +31,53 @@ Un entier représentant le prix le plus bas du produit **P** dans la liste.
 Il faut tout d'abord lire les données d'entrées
 ``` java
 	Scanner sc = new Scanner(System.in);
-	int nombreDeTours = sc.nextInt();
+	int nombreProduits = sc.nextInt();
+	sc.nextLine();
+	String nomProduit = sc.nextLine();
 	sc.nextLine();
 ```
 
 Puis dans une boucle lire les cartes des joueurs A et B
 ``` java
-	for (int i = 0; i< n; i++) {		
-		int carteJoueurA = sc.nextInt();
-		int carteJoueurB = sc.nextInt();
-
-		sc.nextLine();
+	for (int i = 0; i < nombreProduits; i++) {
+		line = sc.nextLine();
+		String produitCourant = line.split(" ")[0];
+		int prix = Integer.parseInt(line.split(" ")[1]);
 	}
 ```		
 
-💡 il ne faut pas oublier le `sc.nextLine()` pour passer à la ligne suivante.
+💡 `String[] java.lang.String.split(String regex)` pour séparer la ligne en un tableau
+`Integer.parseInt(String s)` pour transformer une chaîne de caractères en nombre
 :::
 
-::: Compter les points
-Il faut compter les points de chacun des joueurs dans la boucle.
-Les variables comptant les points sont définies en dehors de la boucle
+::: Chercher le prix le plus bas
+A l'intérieur de la boucle, il faut d'abord savoir si le produit courant correspond au produit demandé
 
 ``` java
-	int pointsJoueurA = 0;
-	int pointsJoueurB = 0;
-	for (int i = 0; i< n; i++) {		
-		int carteJoueurA = sc.nextInt();
-		int carteJoueurB = sc.nextInt();
-
-		if (carteJoueurA > carteJoueurB) {
-			pointsJoueurA++;
-		}
-		else if (carteJoueurB > carteJoueurA) {
-			pointsJoueurB++;
-		}
-		
-		sc.nextLine();
+	if (produitCourant.equals(nomProduit)) {
 	}
 ```	
-💡 il ne faut pas oublier le cas d'égalité, où les scores des joueurs ne changent pas. Ici, il est implicite, grâce au `else if`.
 
-:::
-
-::: Afficher le résultat
+Il faut chercher le prix le plus petit.
+On compare chaque prix au plus petit prix déjà trouvé.
+Si il est plus petit, on met à jour le plus petit prix trouvé.
 
 ``` java
-	System.out.println(pointsJoueurA > pointsJoueurB ? "A" : "B");
-```
-Il faut écrire `"A"` ou `"B"` suivant leurs points respectifs.
+	if (produitCourant.equals(nomProduit) && prix < minimum) {
+	    minimum = prix
+	}
+```	
 
-💡  On peut ici utiliser une expression ternaire, qui montre efficacement l'alternative.
+💡 String.equals(String other) pour vérifier l'égalité entre deux chaînes de caractères
+
+Il ne faut pas oublier de déclarer et d'initialiser la variable minimum.
+On choisit de l'initialiser avec une valeur très grande.
+```java
+    int minimum = Integer.MAX_VALUE;
+```
 
 :::
+
 :::
 
 
