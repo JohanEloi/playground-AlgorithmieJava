@@ -78,6 +78,9 @@ On choisit de l'initialiser avec une valeur très grande.
     int minimum = Integer.MAX_VALUE;
 ```
 
+💡 `Integer.MAX_VALUE` est la plus grande valeur possible pour un entier de type `int` 
+
+
 :::
 
 ::: Code
