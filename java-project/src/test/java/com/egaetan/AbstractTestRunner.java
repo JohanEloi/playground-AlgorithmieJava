@@ -37,7 +37,7 @@ public class AbstractTestRunner {
 	}
 
 	protected void success() {
-		msg("Succès", this.victoryMsg);
+		msg("Succès ✌", this.victoryMsg);
 		communication.success(true);
 	}
 
