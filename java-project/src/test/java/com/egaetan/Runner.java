@@ -21,10 +21,11 @@ public class Runner {
 
 
 	public void run(String inputFile, String testName, String expected) {
+		System.initPath(inputFile);
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream(10 * 1024);
 			System.out = new PrintStream(baos);
-			System.initPath(inputFile);
+			
 
 			ByteArrayOutputStream logs = new ByteArrayOutputStream(10 * 1024);
 			System.err = new PrintStream(logs);

@@ -10,7 +10,10 @@ public class PrixLePlusBasTest extends AbstractTestRunner {
 	
 	@Test
 	public void test() {
-		runTest("prixLePlusBas/prix1.txt", "Simple test", "10");
+		runTest("prixLePlusBas/prix1.txt", "Poivre & Sel", "10");
+		runTest("prixLePlusBas/prix2.txt", "Panier de fruits", "21");
+		runTest("prixLePlusBas/prix3.txt", "Compote", "11");
+		runTest("prixLePlusBas/prix3.txt", "Long", "11");
 	}
 
 	
