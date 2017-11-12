@@ -26,7 +26,7 @@ public class PrixLePlusBasTest extends AbstractTestRunner {
 	public void generateLongListe() throws IOException {
 		String[] elements = new String[] {"Chaise", "Table", "Canapé", "Coussin", "Lampe", "Miroir"};
 		Random random = new Random();
-		TestEntry entry = new TestEntry();
+		TestEntry entry = new TestEntry("prixLePlusBas/prix4.txt");
 		entry.line("10000");
 		entry.line(elements[0]);
 
@@ -39,11 +39,8 @@ public class PrixLePlusBasTest extends AbstractTestRunner {
 			}
 			entry.line(element + " " + prix);
 		}
-		entry.expected = elements[0] + min;
-		FileWriter writer = new FileWriter("src/main/resources/prixLePlusBas/prix4.txt");
-		writer.write(entry.input());
-		writer.close();
-		System.err.println(entry.expected);
+		entry.expect(elements[0] + min);
+		entry.writeDown();
 	}
 	
 }

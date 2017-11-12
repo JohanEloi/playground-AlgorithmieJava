@@ -12,38 +12,142 @@ public class RobotsLunairesTest extends AbstractTestRunner {
 	public RobotsLunairesTest() {
 		super(() -> new PrixLePlusBas().main(), "Prix remporté ! 💶");
 	}
-	
-	@Test
+
+	//@Test
 	public void test() {
-		runTestFromFile("prixLePlusBas/prix1.txt", "Poivre & Sel 🍴", "10");
-		runTestFromFile("prixLePlusBas/prix2.txt", "Panier de fruits 🍒 🍌🍍", "21");
-		runTestFromFile("prixLePlusBas/prix3.txt", "Compote 🍎", "11");
-		runTestFromFile("prixLePlusBas/prix4.txt", "Grand salon 🏠", "1");
+		runTestFromFile("robotsLunaires/test1.txt", "Un seul robot", "10");
 	}
 
-	@Test
-	@Ignore
-	public void generateLongListe() throws IOException {
-		String[] elements = new String[] {"Chaise", "Table", "Canapé", "Coussin", "Lampe", "Miroir"};
-		Random random = new Random();
-		TestEntry entry = new TestEntry();
-		entry.line("10000");
-		entry.line(elements[0]);
+	private enum Orientation {
+		N, W, E, S;
 
-		int min = Integer.MAX_VALUE;
-		for (int i = 0; i < 10000; i++) {
-			String element = elements[random.nextInt(elements.length)];
-			int prix = random.nextInt(100) + 1;
-			if (element==elements[0] && min > prix) {
-				min = prix;
+		public Orientation left() {
+			switch (this) {
+			case N:
+				return W;
+			case W:
+				return S;
+			case S:
+				return E;
+			case E:
+				return N;
 			}
-			entry.line(element + " " + prix);
+			return null;
 		}
-		entry.expected = elements[0] + min;
-		FileWriter writer = new FileWriter("src/main/resources/prixLePlusBas/prix4.txt");
-		writer.write(entry.input());
-		writer.close();
-		System.err.println(entry.expected);
+
+		public Orientation right() {
+			switch (this) {
+			case N:
+				return E;
+			case W:
+				return N;
+			case S:
+				return W;
+			case E:
+				return S;
+			}
+			return null;
+		}
+	}
+
+	private enum Ordre {
+		L, R, M;
 	}
 	
+	public static class Robot {
+		int x;
+		int y;
+		Orientation orientation;
+
+		public Robot(int x, int y, Orientation orientation) {
+			super();
+			this.x = x;
+			this.y = y;
+			this.orientation = orientation;
+		}
+
+		public Robot move(Ordre ordre) {
+			Robot next = new Robot(x, y, orientation);
+			switch (ordre) {
+			case L:
+				next.orientation = orientation.left();
+				break;
+			case R:
+				next.orientation = orientation.right();
+				break;
+			case M:
+				switch (orientation) {
+				case N:
+					next.y++;
+					break;
+				case S:
+					next.y--;
+					break;
+				case W:
+					next.x--;
+					break;
+				case E:
+					next.x++;
+					break;
+				}
+			}
+			return next;
+		}
+
+		public boolean isValide(int maxX, int maxY) {
+			return x >= 0 && x < maxX && y >= 0 && y < maxY;
+		}
+		
+		@Override
+		public String toString() {
+			return x + " " + y + " " + orientation;
+		}
+
+	}
+
+
+	@Test
+	//@Ignore
+	public void generatePath() throws IOException {
+		Random random = new Random();
+		String fileName = "robotsLunaires/test2.txt";
+		TestEntry entry = new TestEntry(fileName);
+		int maxX = 10;
+		int maxY = 10;
+		int nbRobot = 1;
+		int maxLength = 10;
+		int minLength = 10;
+
+		entry.line(maxX + " " + maxY);
+
+		for (int i = 0; i < nbRobot; i++) {
+			Robot p = new Robot(random.nextInt(maxX), random.nextInt(maxY), Orientation.values()[random.nextInt(Orientation.values().length)]);
+
+			entry.line(p.toString());
+			
+			StringBuilder orders = new StringBuilder();
+			int nbSteps = (maxLength - minLength > 0 ? random.nextInt(maxLength - minLength) : 0) + minLength;
+
+			for (int j = 0; j < nbSteps; j++) {
+				boolean orderFound = false;
+				Ordre next = null;
+				Robot p2 = null;
+				while (!orderFound) {
+					next = Ordre.values()[random.nextInt(Ordre.values().length)];
+					p2 = p.move(next);
+
+					if (p2.isValide(maxX, maxY)) {
+						orderFound = true;
+					}
+				}
+				orders.append(next);
+				p = p2;
+			}
+			entry.line(orders.toString());
+			entry.expect(p.toString());
+
+		}
+		entry.writeDown();
+	}
+
 }
