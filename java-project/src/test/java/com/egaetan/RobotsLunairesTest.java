@@ -8,7 +8,7 @@ import org.junit.Test;
 public class RobotsLunairesTest extends AbstractTestRunner {
 
 	public RobotsLunairesTest() {
-		super(() -> new RobotsLunaires().main(), "Lune explorée ! 🌝");
+		super(() -> new RobotsLunaires().main(), "Lune explorée ! 🌝  \n En route vers les étoiles  🚀");
 	}
 
 	@Test
