@@ -62,17 +62,17 @@ L'algorithme sera un automate qui fera évoluer l'état du système à chaque ac
 En pseudo code:
 + `LIRE ETAT INITIAL`
 + `POUR CHAQUE ACTION`
- + `EXECUTER L'ACTION`
+  + `EXECUTER L'ACTION`
 + `ECRIRE ETAT FINAL`
 
 
 test
-+ Lorem ipsum dolor sit amet
-+ Consectetur adipiscing elit
++ `LIRE ETAT INITIAL`
++ `POUR CHAQUE ACTION`
 + Integer molestie lorem at massa
 + Facilisis in pretium nisl aliquet
 + Nulla volutpat aliquam velit
-  - Phasellus iaculis neque
+  - `EXECUTER L'ACTION`
   - Purus sodales ultricies
   - Vestibulum laoreet porttitor sem
   - Ac tristique libero volutpat at
