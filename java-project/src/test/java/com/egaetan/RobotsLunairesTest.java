@@ -13,9 +13,9 @@ public class RobotsLunairesTest extends AbstractTestRunner {
 		super(() -> new PrixLePlusBas().main(), "Prix remporté ! 💶");
 	}
 
-	//@Test
+	@Test
 	public void test() {
-		runTestFromFile("robotsLunaires/test1.txt", "Un seul robot", "10");
+		runTestFromFile("robotsLunaires/test1.txt", "🌑 Un seul robot", "10");
 	}
 
 	private enum Orientation {
