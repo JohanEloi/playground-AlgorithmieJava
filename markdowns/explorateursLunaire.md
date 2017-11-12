@@ -1,7 +1,6 @@
 # Robots Lunaires [Facile]
 
-## Inspiration
-Problème posé lors d'entretien
+## Inspiré par des problèmes posé lors d'entretien d'embauche
 
 ## Enoncé
 
@@ -185,7 +184,7 @@ Une grande partie du problème n'est ici pas spécifié, en particulier :
 + quel comportement quand le robot quitte le plateau ?
 + deux robots peuvent-ils se retrouver à la même position ?
  
-Ici les valideurs ne proposent que des chemins restant sur le plateau et ignore les collisions entre robots, toutefois le sujet pourrait être approfondi dans ces directions.
+Ici les valideurs ne proposent que des chemins restant sur le plateau et ignorent les collisions entre robots, toutefois le sujet pourrait être approfondi dans ces directions.
 :::
 :::
 
