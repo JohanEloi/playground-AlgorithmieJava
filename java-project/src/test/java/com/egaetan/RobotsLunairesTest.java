@@ -1,16 +1,14 @@
 package com.egaetan;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class RobotsLunairesTest extends AbstractTestRunner {
 
 	public RobotsLunairesTest() {
-		super(() -> new PrixLePlusBas().main(), "Prix remporté ! 💶");
+		super(() -> new RobotsLunaires().main(), "Lune explorée ! 🌝");
 	}
 
 	@Test
@@ -106,7 +104,7 @@ public class RobotsLunairesTest extends AbstractTestRunner {
 	}
 
 
-	@Test
+	//@Test
 	//@Ignore
 	public void generatePath() throws IOException {
 		Random random = new Random();
