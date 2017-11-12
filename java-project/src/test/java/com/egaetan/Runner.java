@@ -53,7 +53,7 @@ public class Runner {
 			}
 			
 			String res = baos.toString().trim();
-			Assert.assertEquals(testName, expected, res);
+			Assert.assertEquals(testName, expected.trim(), res);
 
 			msg("Résultats", "✔ "+ testName);
 		} catch (AssertionError ae) {				
