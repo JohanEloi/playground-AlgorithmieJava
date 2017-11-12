@@ -15,7 +15,7 @@ public class RobotsLunairesTest extends AbstractTestRunner {
 
 	@Test
 	public void test() {
-		runTestFromFile("robotsLunaires/test1.txt", "🌑 Un seul robot", "10");
+		runTestFromFile("robotsLunaires/test1.txt", "🌑  Un seul robot", "1 7 S");
 	}
 
 	private enum Orientation {
