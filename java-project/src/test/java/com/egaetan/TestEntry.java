@@ -33,6 +33,6 @@ public class TestEntry {
 		FileWriter writer = new FileWriter("src/main/resources/"+fileName);
 		writer.write(input());
 		writer.close();
-		System.err.println(expected());		
+		java.lang.System.err.println(expected().replaceAll("\\n", "\\\\n"));		
 	}
 }
