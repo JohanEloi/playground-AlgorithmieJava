@@ -87,6 +87,7 @@ Tourne à droite :
 
 💡 
 > L'orientation peut être implémentée avec un `enum`
+
 > On peut créer des classes internes dans le même fichier
 ```java
 
