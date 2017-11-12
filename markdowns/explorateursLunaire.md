@@ -24,7 +24,7 @@ Supposons que le carré directement au nord de (x, y) est (x, y + 1).
 La position est composée de deux entiers et d'une lettre séparés par des espaces, correspondant aux coordonnées x et y et à l'orientation du robot.
 
 ### Sortie
-Pour chaque robot, ses coordonnées finales et son orientation. Chaque robot execute ses instructions séquentiellement, ce qui signifie que le deuxième robot ne commencera à bouger que lorsque le premier aura fini de bouger.
+Pour chaque robot, ses coordonnées finales et son orientation. Chaque robot exécute ses instructions séquentiellement, ce qui signifie que le deuxième robot ne commencera à bouger que lorsque le premier aura fini de bouger.
 
 
 ::: Explications
