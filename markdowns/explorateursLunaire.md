@@ -1,5 +1,7 @@
 # Robots Lunaires [Facile]
 
+## Inspiration
+Problème posé lors d'entretien
 
 ## Enoncé
 
@@ -171,12 +173,19 @@ switch (orientation) {
 ::: Afficher le résultat
 
 ``` java
-	System.out.println(pointsJoueurA > pointsJoueurB ? "A" : "B");
+	System.out.println(robot.x + " " + robot.y + " " + robot.orientation);
 ```
-Il faut écrire `"A"` ou `"B"` suivant leurs points respectifs.
 
-💡  On peut ici utiliser une expression ternaire, qui montre efficacement l'alternative.
+💡  C'est une bonne idée d'encapsuler l'état du robot dans une classe. Le comportement doit également y être placé.
 
+:::
+
+:::Commentaires
+Une grande partie du problème n'est ici pas spécifié, en particulier :
++ quel comportement quand le robot quitte le plateau ?
++ deux robots peuvent-ils se retrouver à la même position ?
+ 
+Ici les valideurs ne proposent que des chemins restant sur le plateau et ignore les collisions entre robots, toutefois le sujet pourrait être approfondi dans ces directions.
 :::
 :::
 
