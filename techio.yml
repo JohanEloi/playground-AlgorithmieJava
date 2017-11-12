@@ -8,6 +8,8 @@ plan:
   statement: markdowns/prix_le_plus_bas.md
 - title: Robots lunaires
   statement: markdowns/explorateursLunaire.md
+  - title: Hydroponie
+  statement: markdowns/hydroponie.md
 projects:
   java:
     root: /java-project
