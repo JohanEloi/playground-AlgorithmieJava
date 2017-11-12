@@ -62,7 +62,7 @@ L'algorithme sera un automate qui fera évoluer l'état du système à chaque ac
 En pseudo code:
 + `LIRE ETAT INITIAL`
 + `POUR CHAQUE ACTION`
- -  `EXCUTER L'ACTION`
+ - `EXECUTER L'ACTION`
 + `ECRIRE ETAT FINAL`
 :::
 
