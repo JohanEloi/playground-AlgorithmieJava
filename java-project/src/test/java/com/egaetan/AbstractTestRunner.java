@@ -2,6 +2,7 @@ package com.egaetan;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Arrays;
 
 import org.junit.After;
 import org.junit.Before;
@@ -37,7 +38,7 @@ public class AbstractTestRunner {
 	}
 
 	protected void success() {
-		msg("Succès ✨ ", this.victoryMsg);
+		Arrays.stream(victoryMsg.split("\n")).forEach(v -> msg("Succès ✨ ", v));
 		communication.success(true);
 	}
 
