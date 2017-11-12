@@ -85,9 +85,18 @@ Tourne à droite :
 + S ➡  W
 + W ➡  N
 
+💡 
+> L'orientation peut être implémentée avec un `enum`
+> On peut créer des classes internes dans le même fichier
+> ```java
 
-
-
+public class RobotsLunaires {
+	
+	enum Orientation {
+		N, W, E, S;
+	}
+}
+```
 
 ``` java
 	int pointsJoueurA = 0;
