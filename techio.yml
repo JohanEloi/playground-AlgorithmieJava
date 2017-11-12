@@ -6,8 +6,7 @@ plan:
   statement: markdowns/bataille.md
 - title: Prix le plus bas
   statement: markdowns/prix_le_plus_bas.md
-- title: !!binary |-
-    Um9ib3RzIGx1bmFpcmVzIPCfmoA=
+- title: Robots lunaires
   statement: markdowns/explorateursLunaire.md
 projects:
   java:
