@@ -66,21 +66,6 @@ En pseudo code:
 + `ECRIRE ETAT FINAL`
 
 
-test
-+ `LIRE ETAT INITIAL`
-+ `POUR CHAQUE ACTION`
-+ Integer molestie lorem at massa
-+ Facilisis in pretium nisl aliquet
-+ Nulla volutpat aliquam velit
-  - `EXECUTER L'ACTION`
-  - Purus sodales ultricies
-  - Vestibulum laoreet porttitor sem
-  - Ac tristique libero volutpat at
-+ Faucibus porta lacus fringilla vel
-+ Aenean sit amet erat nunc
-+ Eget porttitor lorem
-
-
 :::
 
 ::: Orientation
