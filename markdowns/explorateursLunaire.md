@@ -30,29 +30,62 @@ Pour chaque robot, ses coordonnées finales et son orientation. Chaque robot ex�
 ::: Explications
 
 ::: Lecture des entrées
-Il faut tout d'abord lire les données d'entrées
+Il faut tout d'abord lire les données d'entrées:
++ les coordonnées maximales
++ les lignes pour chaque robot.
+
 ``` java
 	Scanner sc = new Scanner(System.in);
-	int nombreDeTours = sc.nextInt();
+	int maxX = sc.nextInt();
+	int maxY = sc.nextInt();
 	sc.nextLine();
+	
+	while(sc.hasNextLine()) {
+			line = sc.nextLine();
+			int x = Integer.parseInt(line.split(" ")[0]);
+			int y = Integer.parseInt(line.split(" ")[1]);
+			String orientation = line.split(" ")[2];
+	}
 ```
 
-Puis dans une boucle lire les cartes des joueurs A et B
-``` java
-	for (int i = 0; i< n; i++) {		
-		int carteJoueurA = sc.nextInt();
-		int carteJoueurB = sc.nextInt();
+💡 `Scanner.hasNextLine()` pour savoir s'il y a encore des lignes à lire
 
-		sc.nextLine();
-	}
-```		
-
-💡 il ne faut pas oublier le `sc.nextLine()` pour passer à la ligne suivante.
 :::
 
-::: Compter les points
-Il faut compter les points de chacun des joueurs dans la boucle.
-Les variables comptant les points sont définies en dehors de la boucle
+
+
+::: Algorithme
+On nous donne ici un état initial, une suite d'actions et on nous demande de calculer l'état final.
+
+L'algorithme sera un automate qui fera évoluer l'état du système à chaque action.
+
+En pseudo code:
++ `LIRE ETAT INITIAL`
++ `POUR CHAQUE ACTION`
+ -  `EXCUTER L'ACTION`
++ `ECRIRE ETAT FINAL`
+:::
+
+::: Orientation
+
+Deux actions peuvent modifier l'orientation, `L` tourne à gauche et `R` tourne à droite.
+
+Tourne à gauche :
++ N ➡  W
++ W ➡  S
++ S ➡  E
++ E ➡  N
+
+
+Tourne à droite :
++ N ➡  E
++ E ➡  S
++ S ➡  W
++ W ➡  N
+
+
+
+
 
 ``` java
 	int pointsJoueurA = 0;
