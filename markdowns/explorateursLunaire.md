@@ -41,15 +41,24 @@ Il faut tout d'abord lire les données d'entrées:
 	sc.nextLine();
 	
 	while(sc.hasNextLine()) {
-			line = sc.nextLine();
-			int x = Integer.parseInt(line.split(" ")[0]);
-			int y = Integer.parseInt(line.split(" ")[1]);
-			String orientation = line.split(" ")[2];
+		line = sc.nextLine();
+		int x = Integer.parseInt(line.split(" ")[0]);
+		int y = Integer.parseInt(line.split(" ")[1]);
+		String orientation = line.split(" ")[2];
+		
+		String orders = sc.nextLine();
 	}
 ```
 
 💡 `Scanner.hasNextLine()` pour savoir s'il y a encore des lignes à lire
 
+
+Il faut lire ensuite les ordres un par un
+```java
+for (int i = 0; i < line.length(); i++) {
+	String ordre = line.substring(i, i+1);
+}
+```
 :::
 
 
@@ -136,6 +145,27 @@ public Orientation right() {
 ```
 
 💡 Il est préférable de conserver le vocabulaire de l'énoncé, on nomme donc les fonctions `left` et `right`
+:::
+
+:::Mouvement
+Le quadrillage proposé est particulier avec le bas à gauche en (0, 0), sinon rien de compliqué
+
+```java
+switch (orientation) {
+	case N:
+		y++;
+		break;
+	case S:
+		y--;
+		break;
+	case W:
+		x--;
+		break;
+	case E:
+		x++;
+		break;
+}
+```
 :::
 
 ::: Afficher le résultat
