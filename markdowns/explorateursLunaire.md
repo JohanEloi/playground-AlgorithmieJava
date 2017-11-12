@@ -89,8 +89,8 @@ Tourne à droite :
 > L'orientation peut être implémentée avec un `enum`
 
 > On peut créer des classes internes dans le même fichier
-```java
 
+```java
 public class RobotsLunaires {
 	
 	enum Orientation {
@@ -99,25 +99,43 @@ public class RobotsLunaires {
 }
 ```
 
-``` java
-	int pointsJoueurA = 0;
-	int pointsJoueurB = 0;
-	for (int i = 0; i< n; i++) {		
-		int carteJoueurA = sc.nextInt();
-		int carteJoueurB = sc.nextInt();
+Il reste à coder les fonctions pour tourner à gauche et à droite.
 
-		if (carteJoueurA > carteJoueurB) {
-			pointsJoueurA++;
+Ces fonctions concernent uniquement l'orientation et ont leurs places dans la classe enum.
+
+```java
+public Orientation left() {
+	switch (this) {
+		case N:
+			return W;
+		case W:
+			return S;
+		case S:
+			return E;
+		case E:
+			return N;
 		}
-		else if (carteJoueurB > carteJoueurA) {
-			pointsJoueurB++;
-		}
-		
-		sc.nextLine();
+	return null;
+}
+```
+
+```java
+public Orientation right() {
+	switch (this) {
+		case N:
+			return E;
+		case W:
+			return N;
+		case S:
+			return W;
+		case E:
+			return S;
 	}
-```	
-💡 il ne faut pas oublier le cas d'égalité, où les scores des joueurs ne changent pas. Ici, il est implicite, grâce au `else if`.
+	return null;
+}
+```
 
+💡 Il est préférable de conserver le vocabulaire de l'énoncé, on nomme donc les fonctions `left` et `right`
 :::
 
 ::: Afficher le résultat
