@@ -14,7 +14,7 @@ Vous avez pour mission d’évaluer le potentiel génétique des candidats d’u
 
 Lors du séquençage, les deux chaînes se cassent en plusieurs petits fragments qui sont mélangés entre eux. Votre méthode n’est pas si mauvaise que ça, vous savez que l’ordre des caractères dans un fragment n’a pas été inversé. Vous êtes cependant obligé écrire un programme pour recoller les morceaux dans un ordre plausible. Pour vous assurer que vous n’avez oublié aucun fragment, votre programme renverra les deux chaînes a et b en séparant les différents fragments par des espaces.
 
-Indication : l’ADN d’un candidat n’est pas très complexe, il n’y aura jamais plus de **8** fragments, vous pourrez donc procéder par énumération exhaustive (force brute).
+_Indication_ : l’ADN d’un candidat n’est pas très complexe, il n’y aura jamais plus de **8** fragments, vous pourrez donc procéder par énumération exhaustive (force brute).
 
 ## Exemple
 
