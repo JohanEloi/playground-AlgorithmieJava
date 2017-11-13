@@ -1,7 +1,8 @@
-# Bataille [Facile]
+# Cubetto
 
-## Inspiré de [BattleDev](https://battledev.blogdumoderateur.com/) Novembre2017
+## Original
 
+![Cubetto](https://raw.githubusercontent.com/geleouet/playground-GSDWlMUe/master/markdowns/asset/cubetto.jpg)
 
 ## Enoncé
 
