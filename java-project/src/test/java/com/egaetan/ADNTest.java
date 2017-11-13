@@ -1,5 +1,13 @@
 package com.egaetan;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Optional;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 public class ADNTest extends AbstractTestRunner {
@@ -11,7 +19,7 @@ public class ADNTest extends AbstractTestRunner {
 	@Test
 	public void test() {
 		Data data1 = new Data("AT", "G", "CC", "TAG");
-		runTest(reader(() -> input(data1), "Simple", s -> verify(data1.brins, s))); 		
+		runTest(reader(data1::input), "Simple", s -> data1.check(s)); 		
 	}
 
 	static class Data {
@@ -22,16 +30,16 @@ public class ADNTest extends AbstractTestRunner {
 			this.brins = brins;
 		}
 		
-		public void verify(String s) {
+		public void check(String s) {
 			verify(brins, s);
+		}
+		
+		public String input() {
+			return Arrays.stream(brins).collect(Collectors.joining("\n", brins.length + "\n", ""));
 		}
 	}
 	
-	private String input(String...sol) {
-		return Arrays.stream(sol).collect(Collectors.joining("\n", sol.length + "\n", ""));
-	}
-	
-	private void verify(String[] inputs, String sol) {
+	private static void verify(String[] inputs, String sol) {
 		Map<String, Long> counts = count(Arrays.stream(inputs));
 		
 		Pattern pat = Pattern.compile("#"); 
@@ -57,7 +65,7 @@ public class ADNTest extends AbstractTestRunner {
 		
 	}
 
-	private Map<String, Long> count(Stream<String> stream) {
+	private static Map<String, Long> count(Stream<String> stream) {
 		return stream.collect(Collectors.groupingBy(s -> s, Collectors.counting()));
 	}
 	
