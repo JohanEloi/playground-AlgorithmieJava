@@ -50,63 +50,17 @@ Puis dans une double boucle lire la carte
 ```		
 
 💡 
->`String[] java.lang.String.split(String regex)` pour séparer la ligne en un tableau
->`Integer.parseInt(String s)` pour transformer une chaîne de caractères en nombre
+>`String.charAt(int index)` pour accéder au ième caractère d'une chaîne de caractères
 :::
 
-::: Chercher le prix le plus bas
-A l'intérieur de la boucle, il faut d'abord savoir si le produit courant correspond au produit demandé
-
-``` java
-	if (produitCourant.equals(nomProduit)) {
-	}
-```	
-
-🔥 `String.equals(String other)` pour vérifier l'égalité entre deux chaînes de caractères
-
-Il faut chercher le prix le plus petit.
-On compare chaque prix au plus petit prix déjà trouvé.
-Si il est plus petit, on met à jour le plus petit prix trouvé.
-
-``` java
-	if (produitCourant.equals(nomProduit) && prix < minimum) {
-	    minimum = prix
-	}
-```	
-
-
-Il ne faut pas oublier de déclarer et d'initialiser la variable minimum.
-On choisit de l'initialiser avec une valeur très grande.
-```java
-    int minimum = Integer.MAX_VALUE;
-```
-
-💡 `Integer.MAX_VALUE` est la plus grande valeur possible pour un entier de type `int` 
-
-
+::: Algorithme
+Le sujet consiste à compter des cases :
++ Sans compter deux fois la même case _(irriguée par deux évaporateurs)_
++ En ignorant certaines cases _(contenant un évaporateur)_
++ Sans sortir de la grille _(un évaporateur sur un bord, n'irrigue que les cases à l'intérieur de la grille)_
+ 
 :::
 
-::: Code
-Tout ensemble :
-
-``` java
-    int minimum = Integer.MAX_VALUE;
-    for (int i = 0; i < nombreProduits; i++) {
-		line = sc.nextLine();
-		String produitCourant = line.split(" ")[0];
-		int prix = Integer.parseInt(line.split(" ")[1]);
-	    if (produitCourant.equals(nomProduit) && prix < minimum) {
-	        minimum = prix
-	    }
-	}
-	System.out.println(minimum);
-```	
-
-
-💡 Il faut déclarer et initialiser la variable `minimum` en dehors de la boucle.
-
-
-:::
 
 :::
 
