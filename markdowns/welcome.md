@@ -11,4 +11,9 @@ Les exercices proposés ici sont de difficulté différentes.
 + Prix le plus bas
 + Robots Lunaires
 
+## Moyen
++ Hydroponie
+
+## Difficile
++ ADN
 
