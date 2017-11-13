@@ -1,6 +1,6 @@
 # Robots Lunaires [Facile]
 
-## Inspiré par des problèmes posé lors d'entretien d'embauche
+## Inspiré par des problèmes posés lors d'entretien d'embauche
 
 ## Enoncé
 
