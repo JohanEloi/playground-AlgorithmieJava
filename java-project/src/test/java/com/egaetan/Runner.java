@@ -62,7 +62,7 @@ public class Runner {
 
 		} catch (AssertionError ae) {				
 			isAllOk = false;
-			msg("Résultats", "✘ " + testName + " " + ae.getMessage());
+			msg("Résultats", "✘ " + testName + ": " + ae.getMessage());
 			
 			String logsOut = logs.toString().trim();
 			if (logsOut.length() > 0) {
