@@ -25,6 +25,7 @@ TAG
 
 Une solution possible est alors :
 |Brin1|TAGG|
+|-----|----|
 |Brin2|ATCC|
 
 
