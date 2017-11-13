@@ -19,6 +19,17 @@ public class ADNTest extends AbstractTestRunner {
 		super(() -> new ADN().main(), "ADN décrypté 🔬");
 	}
 	
+
+	@Test
+	public void test() {
+		runFromData("Simple 4",new ADNData("AT", "G", "CC", "TAG"));
+		runFromData("Simple 6", new ADNData("CCGATG", "TGG", "TGAA", "GGCT", "AC", "ACCACTT"));
+		runFromData("simple 7", new ADNData("AGTATTTGTC", "GTATGCA", "ATGG", "TCAT", "AAAC", "AGC", "ATACGTTACC"));
+		runFromData("Simple 8", new ADNData("GGC", "A", "AAACT", "A", "AGA", "CCGTTTTGAT", "TC", "T"));
+		runFromData("Binaire 8", new ADNData("T", "T", "T", "A", "A", "A", "AA", "TT"));
+		runFromData("Long", new ADNData("AAGGGTAG", "AGACAAA", "AA", "TTATCGA", "TT", "CCCATCTCTGTTTTT", "AATAG", "CT")); 		
+	}
+	
 	
 	static Random random = new Random();
 	public String generateBrin(int size) {
@@ -72,24 +83,10 @@ public class ADNTest extends AbstractTestRunner {
 		}
 	}
 	
-	@Test
-	public void test() {
-		runFromData("Simple 4",new Data("AT", "G", "CC", "TAG"));
-		runFromData("Simple 6", new Data("CCGATG", "TGG", "TGAA", "GGCT", "AC", "ACCACTT"));
-		runFromData("simple 7", new Data("AGTATTTGTC", "GTATGCA", "ATGG", "TCAT", "AAAC", "AGC", "ATACGTTACC"));
-		runFromData("Simple 8", new Data("GGC", "A", "AAACT", "A", "AGA", "CCGTTTTGAT", "TC", "T"));
-		runFromData("Binaire 8", new Data("T", "T", "T", "A", "A", "A", "AA", "TT"));
-		runFromData("Long", new Data("AAGGGTAG", "AGACAAA", "AA", "TTATCGA", "TT", "CCCATCTCTGTTTTT", "AATAG", "CT")); 		
-	}
-
-	public void runFromData(String title, Data data) {
-		runTest(reader(data::input), title, data::check);
-	}
-
-	static class Data {
+	static class ADNData implements Data {
 		String[] brins;
 
-		public Data(String... brins) {
+		public ADNData(String... brins) {
 			super();
 			this.brins = brins;
 		}

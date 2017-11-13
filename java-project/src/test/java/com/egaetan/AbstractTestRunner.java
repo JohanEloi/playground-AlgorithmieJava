@@ -11,6 +11,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 
+import com.egaetan.ADNTest.ADNData;
+
 public class AbstractTestRunner {
 
 	protected Communication communication = new Communication();
@@ -52,6 +54,10 @@ public class AbstractTestRunner {
 
 	protected void runTest(Supplier<Reader> inputs, String testName, Consumer<String> valideur) {
 		runner.run(inputs, testName, valideur);
+	}
+	
+	protected void runFromData(String title, Data data) {
+		runTest(reader(data::input), title, data::check);
 	}
 
 	protected Supplier<Reader> reader(Supplier<String> from) {
