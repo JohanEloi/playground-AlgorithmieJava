@@ -12,9 +12,9 @@ https://www.youtube.com/watch?v=c0eB0NjMiiY
 
 >Cubetto est un robot de bois adorable qui apprend aux enfants les bases de la programmation informatique par le jeu et l’imaginaire.
 >Il est constitué de :
->+ **Cubetto**. Fabriqué en bois robuste, Cubetto fera découvrir le monde de la programmation à votre enfant. Sans écran, intuitif et >prêt à l’emploi.
->+ **Un langage de programmation** à toucher et à manipuler comme des LEGO®. À chaque bloc, une action. Combinez-les pour créer des >programmes.
->+ **Un panneau de commandes**. Placez les blocs sur le panneau pour indiquer la direction à Cubetto. Appuyez sur le bouton bleu et >Cubetto exécute votre premier programme.
+>+ **Cubetto**. Fabriqué en bois robuste, Cubetto fera découvrir le monde de la programmation à votre enfant. Sans écran, intuitif et prêt à l’emploi.
+>+ **Un langage de programmation** à toucher et à manipuler comme des LEGO®. À chaque bloc, une action. Combinez-les pour créer des programmes.
+>+ **Un panneau de commandes**. Placez les blocs sur le panneau pour indiquer la direction à Cubetto. Appuyez sur le bouton bleu et Cubetto exécute votre premier programme.
 >+ Mappemondes et livres d'histoires. Poursuivez l’aventure avec nos mappemondes, livres d’histoires et **défis**
  
 _extraits de la brochure commerciale_ 
@@ -24,14 +24,14 @@ Très vite papa et maman se sont lancés des défis. La mappemonde sur laquelle 
 Certaines cases contiennent des images de rivière et ne doivent pas être traversées. Le défi consiste à partir d'une case et d'une orientation donnée à déplacer le robot jusqu'à la case d'arrivée en évitant les cases interdites et en passant par les cases obligatoires.
 
 Le langage de programmation consiste en blocs colorés :
-+ 4 verts font avancer
-+ 4 rouges tourner à droite
-+ 4 jaunes tourner à gauche
-+ 4 bleus appellent la fonction
++ 4 **verts** font avancer
++ 4 **rouges** tourner à droite
++ 4 **jaunes** tourner à gauche
++ 4 **bleus** appellent la fonction
 
 Le panneau de commande accueille les blocs, il est séparé en deux parties :
-+ 12 emplacements pour le programme principal
-+ 4 emplacements pour la fonction
++ **12** emplacements pour le programme principal
++ **4** emplacements pour la fonction
 
 
 
@@ -115,4 +115,4 @@ Il faut écrire `"A"` ou `"B"` suivant leurs points respectifs.
 :::
 
 
-@[Bataille]({"stubs": ["src/main/java/com/egaetan/Bataille.java"], "command": "com.egaetan.BatailleTest#test"})
+@[Cubetto]({"stubs": ["src/main/java/com/egaetan/Cubetto.java"], "command": "com.egaetan.CubettoTest#test"})
