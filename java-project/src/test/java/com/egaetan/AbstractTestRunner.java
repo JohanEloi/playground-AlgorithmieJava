@@ -2,9 +2,13 @@ package com.egaetan;
 
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.io.StringReader;
 import java.util.Arrays;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 
 public class AbstractTestRunner {
@@ -43,9 +47,17 @@ public class AbstractTestRunner {
 	}
 
 	protected void runTestFromFile(String inputFile, String testName, String expected) {
-		runner.run(() -> fromFile(inputFile), testName, expected);
+		runner.run(() -> fromFile(inputFile), testName, actual -> Assert.assertEquals(expected.trim(), actual.trim()));
 	}
 
+	protected void runTest(Supplier<Reader> inputs, String testName, Consumer<String> valideur) {
+		runner.run(inputs, testName, valideur);
+	}
+
+	protected Supplier<Reader> reader(Supplier<String> from) {
+		return () -> new StringReader(from.get());
+	}
+	
 	private Reader fromFile(String path) {
 		try {
 			Reader reader = new InputStreamReader(System.class.getClassLoader().getResourceAsStream(path));
