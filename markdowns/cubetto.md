@@ -30,23 +30,20 @@ Le langage de programmation consiste en blocs colorés :
 + 4 bleus appellent la fonction
 
 Le panneau de commande accueille les blocs, il est séparé en deux parties :
-+ 12 emplacement pour le programme principal
-+ 4 emplacement pour la fonction
-
- 
-
++ 12 emplacements pour le programme principal
++ 4 emplacements pour la fonction
 
 
 
 ## Format des données
 
 ### Entrée
-
 **Ligne 1 à 6** : les lignes de la carte représentées par des chaînes de N caractères. Les caractères de la ligne sont  :
 + `X` case interdite
 + `.` case vide
 + `O` case arrivée
 + `P` case passage obligatoire
++ `^`, `v`, `<`, `>` Cubetto et sa direction
 
 ### Sortie
 
@@ -55,6 +52,7 @@ Une chaîne de caractère correspondant au chemin avec
 + `R` pour rouge
 + `J` pour jaune
 + `B` pour bleu
+ou `IMPOSSIBLE` si le défi n'est pas réalisable
 
 ::: Explications
 
