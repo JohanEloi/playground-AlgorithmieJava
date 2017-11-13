@@ -90,4 +90,4 @@ Le sujet consiste à compter des cases :
 :::
 
 
-@[Hydroponie]({"stubs": ["src/main/java/com/egaetan/Hydroponie.java"], "command": "com.egaetan.HydroponieTest#test"})
+@[Hydroponie]({"stubs": ["src/main/java/com/egaetan/ADN.java"], "command": "com.egaetan.ADN#test"})
