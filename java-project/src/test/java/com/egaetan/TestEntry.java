@@ -35,4 +35,12 @@ public class TestEntry {
 		writer.close();
 		java.lang.System.err.println(expected().replaceAll("\\n", "\\\\n"));		
 	}
+
+	public void line(StringBuilder line) {
+		line(line.toString());
+	}
+
+	public void expect(int i) {
+		expect(Integer.toString(i));
+	}
 }
