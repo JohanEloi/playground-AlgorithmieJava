@@ -11,7 +11,12 @@ plan:
 - title: Hydroponie
   statement: markdowns/hydroponie.md
 - title: ADN
-  statement: markdowns/adn.md  
+  statement: markdowns/adn.md 
+ - title: Cubetto
+  statement: markdowns/cubetto.md   
+- title: Pizza
+  statement: markdowns/pizza.md  
+  
 projects:
   java:
     root: /java-project

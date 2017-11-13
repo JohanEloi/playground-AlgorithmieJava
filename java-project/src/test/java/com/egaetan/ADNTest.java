@@ -33,7 +33,7 @@ public class ADNTest extends AbstractTestRunner {
 	@Test
 	public void gen() {
 		String origine = generateBrin(24 + random.nextInt(5));
-		String alls = origine + "#" + reverse(origine);
+		String alls = origine + "#" + homologue(origine);
 		
 		int m = origine.length();
 		
@@ -122,7 +122,7 @@ public class ADNTest extends AbstractTestRunner {
 			String[] split = pat.split(sol);
 			
 			String left = split[0].replaceAll(" ", "");
-			String right = reverse(split[1].replaceAll(" ", ""));
+			String right = homologue(split[1].replaceAll(" ", ""));
 			
 			
 			Assert.assertEquals(left, right);
@@ -135,7 +135,7 @@ public class ADNTest extends AbstractTestRunner {
 	}
 	
 
-	static String reverse(String e) {
+	static String homologue(String e) {
 		return e.replaceAll("A", "U").replaceAll("T", "A").replaceAll("U", "T")
 				.replaceAll("G", "U").replaceAll("C", "G").replaceAll("U", "C");
 	}
