@@ -117,7 +117,7 @@ public class ADNTest extends AbstractTestRunner {
 							)
 					.findAny();
 			
-			findAny.ifPresent(s -> Assert.fail(s + " count"));
+			findAny.ifPresent(s -> Assert.fail("'" + s + "' count"));
 			
 			String[] split = pat.split(sol);
 			
