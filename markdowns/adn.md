@@ -155,6 +155,22 @@ static String homologue(String e) {
 ```
 
 :::
+
+:::Assembler les sous-chaînes
+A partir d'une combinaison générée, il faut tester les **N-2** découpages en deux possibles
+```java
+List<String> combinaison;
+for (int i = 1; i < n -1; i++) {
+	List<String> brinGauche = new ArrayList<>();
+	List<String> brinDroit = new ArrayList<>();
+	for (int i0 = 0; i0 < i; i0++) {
+		brinGauche.add(alls.get(combinaison.get(i0)));
+	}
+	for (int i1 = i; i1 < n; i1++) {
+		brinDroit.add(alls.get(combinaison.get(i1)));
+	}
+}
+:::
 :::
 
 
