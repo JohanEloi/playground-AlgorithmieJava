@@ -10,7 +10,9 @@ public class HydroponieTest extends AbstractTestRunner {
 	
 	@Test
 	public void test() {
-		runTestFromFile("hydroponie/test1.txt", "Simple test", "8");
+		runTestFromFile("hydroponie/test1.txt", "Au centre 🌹", "8");
+		runTestFromFile("hydroponie/test2.txt", "Au bord 🌿", "5");
+		runTestFromFile("hydroponie/test3.txt", "Au bord opposé 🌷", "5");
 	}
 
 	
