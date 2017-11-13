@@ -182,6 +182,41 @@ switch (orientation) {
 		break;
 }
 ```
+
+::: Avancé
+On peut depuis java 8 écrire cela de façon élégante directement dans l'enum
+
+```java
+static class Position {
+	final int x;
+	final int y;
+	
+	public Position(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+enum Orientation {
+	N(p -> new Position(p.x, p.y + 1)),
+	S(p -> new Position(p.x, p.y - 1)),
+	W(p -> new Position(p.x - 1, p.y)),
+	E(p -> new Position(p.x + 1, p.y)),
+	;
+	
+	final Function<Position, Position> move;
+	
+	Orientation(Function<Position, Position> move) {
+		this.move = move;
+	}
+	
+	Position move(Position from) {
+	    return move.apply(from);
+	}
+}
+
+```
+
 :::
 
 ::: Afficher le résultat
