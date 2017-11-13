@@ -50,44 +50,128 @@ Une chaîne de caractères représentant les 2 brins. Les 2 brins sont séparés
 
 ::: Explications
 
-::: Lecture des entrées
-Il faut tout d'abord lire la taille de la carte
-``` java
-	Scanner sc = new Scanner(System.in);
-	int taille = sc.nextInt();
-	sc.nextLine();
+Le sujet consiste à brute-forcer toutes les combinaisons possibles pour trouver une solution.
+
+:::Brut-force
+
+Méthodologie :
++ Générer toutes les combinaisons
++ Tester les combinaisons
+
+:::
+
+::: Générer les combinaisons
+
+Le plus simple est la méthode récursive.
+
+On considère que l'on va générer toutes les combinaisons de nombres de 1 à **N**, correspondants
+
+ + On choisit le premier élément
+ + puis le second en vérifiant que le second est différent du premier
+ + puis le troisième en vérifiant le troisième est différent du premier et du second
+ + ...
+ + puis le nième en vérifiant qu'il est différent du premier, second, ... et du (n-1)ème
+
+```java
+public <T> List<List<T>> allCombinaisons(List<T> source) {
+	return allCombinaisons(source.size(), new ArrayList<>(), source.size())
+		.stream()
+		.map(l -> l.stream()
+					.map(i -> source.get(i))
+					.collect(Collectors.toList()))
+		.collect(Collectors.toList());
+}
+
+public List<List<Integer>> allCombinaisons(int nb, List<Integer> passed, int n) {
+	List<List<Integer>> res = new ArrayList<>();
+	if (n == 0) {
+		return Collections.singletonList(passed);
+	}
+	for (int i = 0; i < nb; i++) {
+		if (passed.contains(i)) {
+			continue;
+		}
+		List<Integer> passedNext = new ArrayList<>(passed);
+		passedNext.add(i);
+		res.addAll(allCombinaisons(nb, passedNext, n -1));
+	}
+	return res;
+}
 ```
 
-Puis dans une double boucle lire la carte
-``` java
-	for (int i = 0; i < taille; i++) {
-		line = sc.nextLine();
-	    for (int j = 0; j < n; j++) {
-            switch (line.charAt(j)) {
-                case 'X':
-                    /* evaporateur en (j, i) */
-                    break;
-                case '.'
-                    /* case vide en (j, i) */
-                    break;
-            }
-        }
-    }
-```		
+On peut choisir de travailler uniquement sur les indices des permutations et mapper ensuite nos objets.
 
-💡 
->`String.charAt(int index)` pour accéder au ième caractère d'une chaîne de caractères
+🤔 Notre algorithme ici génère des doublons lorsque la source contient des doublons
+
 :::
 
-::: Algorithme
-Le sujet consiste à compter des cases :
-+ Sans compter deux fois la même case _(irriguée par deux évaporateurs)_
-+ En ignorant certaines cases _(contenant un évaporateur)_
-+ Sans sortir de la grille _(un évaporateur sur un bord, n'irrigue que les cases à l'intérieur de la grille)_
- 
+:::Tester les combinaisons
+Pour vérifier qu'une combinaison est valide, il faut vérifier:
++ même longueur de chaîne
++ que les lettres correspondent une à une
+
+```java
+public static boolean match(List<String> a, List<String> b) {
+	String la = a.stream().collect(Collectors.joining());
+	String lb = b.stream().collect(Collectors.joining());
+	if (la.length() != lb.length()) {
+		return false;
+	}
+	for (int i = 0; i < la.length(); i++) {
+		switch (la.charAt(i)) {
+		case 'A':
+			if (lb.charAt(i) != 'T') {
+				return false;
+			}
+			break;
+		case 'T':
+			if (lb.charAt(i) != 'A') {
+				return false;
+			}
+			break;
+		case 'G':
+			if (lb.charAt(i) != 'C') {
+				return false;
+			}
+			break;
+		case 'C':
+			if (lb.charAt(i) != 'G') {
+				return false;
+			}
+			break;
+		}
+	}
+	return true;
+}
+
+```
+💡 On peut aussi tester en remplaçant les lettres de la chaîne 2 par leur homologue, ne pas oublier de passer par un intermédiaire !
+
+```java
+static String homologue(String e) {
+	return e.replaceAll("A", "U").replaceAll("T", "A").replaceAll("U", "T")
+			.replaceAll("G", "U").replaceAll("C", "G").replaceAll("U", "C");
+}
+```
+
 :::
 
-
+:::Assembler les sous-chaînes
+A partir d'une combinaison générée, il faut tester les **N-2** découpages en deux possibles
+```java
+List<String> combinaison;
+for (int i = 1; i < n -1; i++) {
+	List<String> brinGauche = new ArrayList<>();
+	List<String> brinDroit = new ArrayList<>();
+	for (int i0 = 0; i0 < i; i0++) {
+		brinGauche.add(alls.get(combinaison.get(i0)));
+	}
+	for (int i1 = i; i1 < n; i1++) {
+		brinDroit.add(alls.get(combinaison.get(i1)));
+	}
+}
+```
+:::
 :::
 
 
