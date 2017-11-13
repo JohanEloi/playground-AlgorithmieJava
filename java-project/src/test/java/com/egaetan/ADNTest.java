@@ -11,7 +11,7 @@ public class ADNTest extends AbstractTestRunner {
 	@Test
 	public void test() {
 		Data data1 = new Data("AT", "G", "CC", "TAG");
-		runTest(reader(() -> input(data1), "Simple", s -> verify(data1.brins, s)); 		
+		runTest(reader(() -> input(data1), "Simple", s -> verify(data1.brins, s))); 		
 	}
 
 	static class Data {
