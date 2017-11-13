@@ -10,6 +10,7 @@ public class RobotsLunairesTest extends AbstractTestRunner {
 
 	@Test
 	public void test() {
+		runTestFromFile("robotsLunaires/test1.txt", "🌑  Un seul robot", "1 3 N\n3 3 E");
 		runTestFromFile("robotsLunaires/test1.txt", "🌑  Un seul robot", "1 7 S");
 		runTestFromFile("robotsLunaires/test2.txt", "🌒  Deux robots", "6 9 S\n4 4 S\n");
 		runTestFromFile("robotsLunaires/test3.txt", "🌓  Petit plateau", "39 79 E\n32 26 W\n18 29 S\n");
