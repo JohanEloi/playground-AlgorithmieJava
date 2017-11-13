@@ -5,7 +5,7 @@ import org.junit.Test;
 public class HydroponieTest extends AbstractTestRunner {
 
 	public HydroponieTest() {
-		super(() -> new Hydroponie().main(), "Bataille gagnée 🃏");
+		super(() -> new Hydroponie().main(), "Réussite de l'exploitation 🚜");
 	}
 	
 	@Test
