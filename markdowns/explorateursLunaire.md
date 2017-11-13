@@ -216,7 +216,7 @@ enum Orientation {
 }
 
 ```
-
+:::
 :::
 
 ::: Afficher le résultat
