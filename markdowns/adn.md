@@ -73,30 +73,30 @@ On considère que l'on va générer toutes les combinaisons de nombres de 1 à *
  + puis le nième en vérifiant qu'il est différent du premier, second, ... et du (n-1)ème
 
 ```java
-    public <T> List<List<T>> allCombinaisons(List<T> source) {
-		return allCombinaisons(source.size(), new ArrayList<>(), source.size())
-				.stream()
-				.map(l -> l.stream()
-						.map(i -> source.get(i))
-						.collect(Collectors.toList()))
-				.collect(Collectors.toList());
-	}
+public <T> List<List<T>> allCombinaisons(List<T> source) {
+	return allCombinaisons(source.size(), new ArrayList<>(), source.size())
+		.stream()
+		.map(l -> l.stream()
+					.map(i -> source.get(i))
+					.collect(Collectors.toList()))
+		.collect(Collectors.toList());
+}
 
-	public List<List<Integer>> allCombinaisons(int nb, List<Integer> passed, int n) {
-		List<List<Integer>> res = new ArrayList<>();
-		if (n == 0) {
-			return Collections.singletonList(passed);
-		}
-		for (int i = 0; i < nb; i++) {
-			if (passed.contains(i)) {
-				continue;
-			}
-			List<Integer> passedNext = new ArrayList<>(passed);
-			passedNext.add(i);
-			res.addAll(allCombinaisons(nb, passedNext, n -1));
-		}
-		return res;
+public List<List<Integer>> allCombinaisons(int nb, List<Integer> passed, int n) {
+	List<List<Integer>> res = new ArrayList<>();
+	if (n == 0) {
+		return Collections.singletonList(passed);
 	}
+	for (int i = 0; i < nb; i++) {
+		if (passed.contains(i)) {
+			continue;
+		}
+		List<Integer> passedNext = new ArrayList<>(passed);
+		passedNext.add(i);
+		res.addAll(allCombinaisons(nb, passedNext, n -1));
+	}
+	return res;
+}
 ```
 
 On peut choisir de travailler uniquement sur les indices des permutations et mapper ensuite nos objets.
@@ -105,7 +105,56 @@ On peut choisir de travailler uniquement sur les indices des permutations et map
 
 :::
 
+:::Tester les combinaisons
+Pour vérifier qu'une combinaison est valide, il faut vérifier:
++ même longueur de chaîne
++ que les lettres correspondent une à une
 
+```java
+public static boolean match(List<String> a, List<String> b) {
+	String la = a.stream().collect(Collectors.joining());
+	String lb = b.stream().collect(Collectors.joining());
+	if (la.length() != lb.length()) {
+		return false;
+	}
+	for (int i = 0; i < la.length(); i++) {
+		switch (la.charAt(i)) {
+		case 'A':
+			if (lb.charAt(i) != 'T') {
+				return false;
+			}
+			break;
+		case 'T':
+			if (lb.charAt(i) != 'A') {
+				return false;
+			}
+			break;
+		case 'G':
+			if (lb.charAt(i) != 'C') {
+				return false;
+			}
+			break;
+		case 'C':
+			if (lb.charAt(i) != 'G') {
+				return false;
+			}
+			break;
+		}
+	}
+	return true;
+}
+
+```
+💡 On peut aussi tester en remplaçant les lettres de la chaîne 2 par leur homologue, ne pas oublier de passer par un intermédiaire !
+
+```java
+static String homologue(String e) {
+	return e.replaceAll("A", "U").replaceAll("T", "A").replaceAll("U", "T")
+			.replaceAll("G", "U").replaceAll("C", "G").replaceAll("U", "C");
+}
+```
+
+:::
 :::
 
 
