@@ -195,6 +195,11 @@ static class Position {
 		this.x = x;
 		this.y = y;
 	}
+	
+	@Override
+	public String toString() {
+	    return x + " " + y;
+	}
 }
 
 enum Orientation {
@@ -216,6 +221,54 @@ enum Orientation {
 }
 
 ```
+
+Les commandes peuvent être également implémentées sous forme d'enum. Cela permet d'indiquer clairement la liste des commandes possibles.
+
+```java
+enum Ordre {
+    L,
+    R,
+    M;
+}
+```
+
+💡 `Ordre ordre = Ordre.valueOf(line.substring(i, i+1));` pour lire l'ordre correspondant au ième caractère.
+
+
+
+La classe Robot enfin :
+
+```java
+class Robot {
+    Position position;
+    Orientation orientation;
+    
+    public void commande(Order ordre) {
+        switch (ordre) {
+            case L:
+                orientation = orientation.left();
+                break;
+            case R:
+                orientation = orientation.right();
+                break;
+            case M:    
+                position = orientation.move(position);
+                break;
+        }
+    }
+    
+    @Override
+    public String toString() {
+        return position + " " + orientation;
+    }
+}    
+```
+
+Le code présenté ne lève pas d'exception en cas d'ordre inconnu, afin de suivre un pattern de _tolerant reader_
+
+Le switch de comportement est dans la classe `Robot`, seule propriétaire des attributs position et orientation.
+
+
 :::
 :::
 
@@ -234,7 +287,7 @@ Une grande partie du problème n'est ici pas spécifié, en particulier :
 + quel comportement quand le robot quitte le plateau ?
 + deux robots peuvent-ils se retrouver à la même position ?
  
-Ici les valideurs ne proposent que des chemins restant sur le plateau et ignorent les collisions entre robots, toutefois le sujet pourrait être approfondi dans ces directions.
+Ici les valideurs ne proposent que des chemins restant sur le plateau et ignorent les collisions entre robots, toutefois le sujet pourrait être approfondi sur ces questions.
 :::
 :::
 
