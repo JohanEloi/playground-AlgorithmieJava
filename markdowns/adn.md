@@ -63,7 +63,46 @@ Méthodologie :
 ::: Générer les combinaisons
 
 Le plus simple est la méthode récursive.
-On considère que l'on va générer toutes les combinaisons de nombres de 1 à 8, correspondants
+
+On considère que l'on va générer toutes les combinaisons de nombres de 1 à **N**, correspondants
+
+ + On choisit le premier élément
+ + puis le second en vérifiant que le second est différent du premier
+ + puis le troisième en vérifiant le troisième est différent du premier et du second
+ + ...
+ + puis le nième en vérifiant qu'il est différent du premier, second, ... et du (n-1)ème
+
+```java
+    public <T> List<List<T>> allCombinaisons(List<T> source) {
+		return allCombinaisons(source.size(), new ArrayList<>(), source.size())
+				.stream()
+				.map(l -> l.stream()
+						.map(i -> source.get(i))
+						.collect(Collectors.toList()))
+				.collect(Collectors.toList());
+	}
+
+	public List<List<Integer>> allCombinaisons(int nb, List<Integer> passed, int n) {
+		List<List<Integer>> res = new ArrayList<>();
+		if (n == 0) {
+			return Collections.singletonList(passed);
+		}
+		for (int i = 0; i < nb; i++) {
+			if (passed.contains(i)) {
+				continue;
+			}
+			List<Integer> passedNext = new ArrayList<>(passed);
+			passedNext.add(i);
+			res.addAll(allCombinaisons(nb, passedNext, n -1));
+		}
+		return res;
+	}
+```
+
+On peut choisir de travailler uniquement sur les indices des permutations et mapper ensuite nos objets.
+
+🤔 Notre algorithme ici génère des doublons lorsque la source contient des doublons
+
 :::
 
 
