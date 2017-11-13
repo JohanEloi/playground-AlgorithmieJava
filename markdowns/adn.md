@@ -50,41 +50,20 @@ Une chaîne de caractères représentant les 2 brins. Les 2 brins sont séparés
 
 ::: Explications
 
-::: Lecture des entrées
-Il faut tout d'abord lire la taille de la carte
-``` java
-	Scanner sc = new Scanner(System.in);
-	int taille = sc.nextInt();
-	sc.nextLine();
-```
+Le sujet consiste à brute-forcer toutes les combinaisons possibles pour trouver une solution.
 
-Puis dans une double boucle lire la carte
-``` java
-	for (int i = 0; i < taille; i++) {
-		line = sc.nextLine();
-	    for (int j = 0; j < n; j++) {
-            switch (line.charAt(j)) {
-                case 'X':
-                    /* evaporateur en (j, i) */
-                    break;
-                case '.'
-                    /* case vide en (j, i) */
-                    break;
-            }
-        }
-    }
-```		
+:::Brut-force
 
-💡 
->`String.charAt(int index)` pour accéder au ième caractère d'une chaîne de caractères
+Méthodologie :
++ Générer toutes les combinaisons
++ Tester les combinaisons
+
 :::
 
-::: Algorithme
-Le sujet consiste à compter des cases :
-+ Sans compter deux fois la même case _(irriguée par deux évaporateurs)_
-+ En ignorant certaines cases _(contenant un évaporateur)_
-+ Sans sortir de la grille _(un évaporateur sur un bord, n'irrigue que les cases à l'intérieur de la grille)_
- 
+::: Générer les combinaisons
+
+Le plus simple est la méthode récursive.
+On considère que l'on va générer toutes les combinaisons de nombres de 1 à 8, correspondants
 :::
 
 
