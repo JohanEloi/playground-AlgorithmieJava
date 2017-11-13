@@ -4,6 +4,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.Reader;
 import java.util.Arrays;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 import org.junit.Assert;
@@ -22,7 +24,7 @@ public class Runner {
 	}
 
 
-	public void run(Supplier<Reader> inputs, String testName, String expected) {
+	public void run(Supplier<Reader> inputs, String testName, Consumer<String> valideur) {
 		System.initSystemIn(inputs);
 
 		ByteArrayOutputStream baos = new ByteArrayOutputStream(1024);
@@ -53,12 +55,12 @@ public class Runner {
 			}
 			
 			String res = baos.toString().trim();
-			Assert.assertEquals(testName, expected.trim(), res);
+			valideur.accept(res);
 
 			msg("Résultats", "✔ "+ testName);
 		} catch (AssertionError ae) {				
 			isAllOk = false;
-			msg("Résultats", "✘ " + ae.getMessage());
+			msg("Résultats", "✘ " + testName + " " + ae.getMessage());
 			
 			String logsOut = logs.toString().trim();
 			if (logsOut.length() > 0) {
