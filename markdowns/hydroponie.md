@@ -1,4 +1,4 @@
-# Prix le plus bas [Facile]
+# Hydroponie [Moyen]
 
 ## Inspiré de [BattleDev](https://battledev.blogdumoderateur.com/) Novembre2017
 
@@ -25,21 +25,27 @@ Un entier représentant le nombre de cases cultivables de votre ferme.
 ::: Explications
 
 ::: Lecture des entrées
-Il faut tout d'abord lire le nombre de produits proposés et le nom du produit recherché
+Il faut tout d'abord lire la taille de la carte
 ``` java
 	Scanner sc = new Scanner(System.in);
-	int nombreProduits = sc.nextInt();
-	sc.nextLine();
-	String nomProduit = sc.nextLine();
+	int taille = sc.nextInt();
 	sc.nextLine();
 ```
 
-Puis dans une boucle lire les produits et leur prix
+Puis dans une double boucle lire la carte
 ``` java
-	for (int i = 0; i < nombreProduits; i++) {
+	for (int i = 0; i < taille; i++) {
 		line = sc.nextLine();
-		String produitCourant = line.split(" ")[0];
-		int prix = Integer.parseInt(line.split(" ")[1]);
+		for (int j = 0; j < n; j++) {
+			switch (line.charAt(j)) {
+				case 'X':
+				    // evaporateur en (j, i)
+                    break;
+                case '.'
+                    // case vide en (j, i)
+                    break;
+			}
+		}
 	}
 ```		
 
