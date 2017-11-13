@@ -170,6 +170,7 @@ for (int i = 1; i < n -1; i++) {
 		brinDroit.add(alls.get(combinaison.get(i1)));
 	}
 }
+```
 :::
 :::
 
