@@ -19,7 +19,7 @@ public class ADNTest extends AbstractTestRunner {
 	@Test
 	public void test() {
 		Data data1 = new Data("AT", "G", "CC", "TAG");
-		runTest(reader(data1::input), "Simple", s -> data1.check(s)); 		
+		runTest(reader(data1::input), "Simple", data1::check); 		
 	}
 
 	static class Data {
@@ -49,7 +49,9 @@ public class ADNTest extends AbstractTestRunner {
 		Assert.assertEquals("Different size", counts.size(), solCounts.size());
 		
 		Optional<String> findAny = counts.keySet().stream()
-			.filter(k -> counts.get(k).equals(solCounts.computeIfAbsent(k, s -> 0L)))
+			.filter(k -> 
+			!counts.get(k).equals(solCounts.computeIfAbsent(k, s -> 0L))
+			)
 			.findAny();
 		
 		findAny.ifPresent(s -> Assert.fail(s + " count"));
