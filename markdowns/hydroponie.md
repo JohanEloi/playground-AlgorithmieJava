@@ -36,10 +36,10 @@ Puis dans une double boucle lire la carte
 ``` java
 	for (int i = 0; i < taille; i++) {
 		line = sc.nextLine();
-		for (int j = 0; j < n; j++) {
-			switch (line.charAt(j)) {
-				case 'X':
-				    /* evaporateur en (j, i) */
+	    for (int j = 0; j < n; j++) {
+            switch (line.charAt(j)) {
+                case 'X':
+                    /* evaporateur en (j, i) */
                     break;
                 case '.'
                     /* case vide en (j, i) */
