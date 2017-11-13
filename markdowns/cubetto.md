@@ -1,15 +1,40 @@
-# Bataille [Facile]
+# Cubetto
 
-## Inspiré de [BattleDev](https://battledev.blogdumoderateur.com/) Novembre2017
+## Original
 
+https://www.youtube.com/watch?v=c0eB0NjMiiY
+
+[Cubetto](https://www.primotoys.com/fr/)
 
 ## Enoncé
 
-Un soir, deux frères profitent de l'absence de leurs parents pour commander des burgers. Pour ne pas laisser de trace, l'un d'entre eux doit descendre les poubelles avant minuit. Ils décident de se départager au jeu de la bataille. Le principe est simple, chaque joueur a le même nombre de cartes et à chaque tour, chaque joueur présente une carte. Celui qui a la carte de plus grande valeur remporte le point. Si les deux cartes ont la même valeur, personne ne remporte le point. Le gagnant du jeu est celui qui a le plus de points à la fin.
+Cubetto est un robot de bois adorable qui apprend aux enfants les bases de la programmation informatique par le jeu et l’imaginaire.
+Il est constitué de :
++ **Cubetto**. Fabriqué en bois robuste, Cubetto fera découvrir le monde de la programmation à votre enfant. Sans écran, intuitif et prêt à l’emploi.
++ **Un langage de programmation** à toucher et à manipuler comme des LEGO®. À chaque bloc, une action. Combinez-les pour créer des programmes.
++ **Un panneau de commandes**. Placez les blocs sur le panneau pour indiquer la direction à Cubetto. Appuyez sur le bouton bleu et Cubetto exécute votre premier programme.
++ Mappemondes et livres d'histoires. Poursuivez l’aventure avec nos mappemondes, livres d’histoires et **défis**
+ 
+_extraits de la brochure commerciale_ 
 
-L'objectif de ce challenge est de déterminer qui ne descendra pas les poubelles ce soir (gagnant de la partie).
+Très vite papa et maman se sont lancés des défis. La mappemonde sur laquelle se déplace Cubetto est une grille de **6x6**.
 
-On va nommer les deux frères A et B. Pour simplifier, nous allons considérer que les cartes ont des valeurs pouvant aller de 1 à 10. Nous vous garantissons qu'il y a bien un gagnant à la fin de la partie (pas d'égalité possible entre les deux joueurs).
+Certaines cases contiennent des images de rivière et ne doivent pas être traversées. Le défi consiste à partir d'une case et d'une orientation donnée à déplacer le robot jusqu'à la case d'arrivée en évitant les cases interdites.
+
+Le langage de programmation consiste en blocs colorés :
++ 4 verts font avancer
++ 4 rouges tourner à droite
++ 4 jaunes tourner à gauche
++ 4 bleus appellent la fonction
+
+Le panneau de commande accueille les blocs, il est séparé en deux parties :
++ 12 emplacement pour le programme principal
++ 4 emplacement pour la fonction
+
+ 
+
+
+
 
 ## Format des données
 
