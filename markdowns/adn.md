@@ -27,8 +27,8 @@ Si vous avez les fragments suivants :
 Une solution possible est alors :
 
 | ----- | ---- |
-| Brin1 | TAGG |
-| Brin2 | ATCC |
+| Brin1 | `TAG``G` |
+| Brin2 | `AT``CC` |
 
 
 Ce qui donne la sortie suivante (voir plus bas pour le format de sortie) :
