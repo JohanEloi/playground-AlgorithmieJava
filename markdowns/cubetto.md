@@ -19,7 +19,8 @@ https://www.youtube.com/watch?v=c0eB0NjMiiY
  
 _extraits de la brochure commerciale_ 
 
-Très vite papa et maman se sont lancés des défis. La mappemonde sur laquelle se déplace Cubetto est une grille de **6x6**.
+Très vite papa et maman se sont lancés des défis. Vous devez écrire un programme qui valide les défis et en donne une solution possible.
+La mappemonde sur laquelle se déplace Cubetto est une grille de **6x6**.
 
 Certaines cases contiennent des images de rivière et ne doivent pas être traversées. Le défi consiste à partir d'une case et d'une orientation donnée à déplacer le robot jusqu'à la case d'arrivée en évitant les cases interdites et en passant par les cases obligatoires.
 
@@ -52,7 +53,10 @@ Une chaîne de caractère correspondant au chemin avec
 + `R` pour rouge
 + `J` pour jaune
 + `B` pour bleu
++ `#` pour séparer les emplacements du programme principal de ceux de la fonction
 ou `IMPOSSIBLE` si le défi n'est pas réalisable
+
+Les emplacements peuvent être rendu par un espace ou ignorés.
 
 ::: Explications
 
