@@ -14,7 +14,7 @@ public class HydroponieTest extends AbstractTestRunner {
 		runTestFromFile("hydroponie/test2.txt", "Au bord 🌿", "5");
 		runTestFromFile("hydroponie/test3.txt", "Au bord opposé 🌷", "5");
 		runTestFromFile("hydroponie/test4.txt", "En couple 🍒", "10");
-		runTestFromFile("hydroponie/test5.txt", "Moyen 🌷", "5");
+		runTestFromFile("hydroponie/test5.txt", "Moyen 🌷", "58");
 	}
 
 	
