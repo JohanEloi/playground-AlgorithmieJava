@@ -44,9 +44,9 @@ Puis dans une double boucle lire la carte
                 case '.'
                     /* case vide en (j, i) */
                     break;
-			}
-		}
-	}
+            }
+        }
+    }
 ```		
 
 💡 
