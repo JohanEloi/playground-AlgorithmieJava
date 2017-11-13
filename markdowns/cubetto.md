@@ -2,18 +2,20 @@
 
 ## Original
 
+:::Vidéo de présentation
 https://www.youtube.com/watch?v=c0eB0NjMiiY
+:::
 
 [Cubetto](https://www.primotoys.com/fr/)
 
 ## Enoncé
 
-Cubetto est un robot de bois adorable qui apprend aux enfants les bases de la programmation informatique par le jeu et l’imaginaire.
-Il est constitué de :
-+ **Cubetto**. Fabriqué en bois robuste, Cubetto fera découvrir le monde de la programmation à votre enfant. Sans écran, intuitif et prêt à l’emploi.
-+ **Un langage de programmation** à toucher et à manipuler comme des LEGO®. À chaque bloc, une action. Combinez-les pour créer des programmes.
-+ **Un panneau de commandes**. Placez les blocs sur le panneau pour indiquer la direction à Cubetto. Appuyez sur le bouton bleu et Cubetto exécute votre premier programme.
-+ Mappemondes et livres d'histoires. Poursuivez l’aventure avec nos mappemondes, livres d’histoires et **défis**
+>Cubetto est un robot de bois adorable qui apprend aux enfants les bases de la programmation informatique par le jeu et l’imaginaire.
+>Il est constitué de :
+>+ **Cubetto**. Fabriqué en bois robuste, Cubetto fera découvrir le monde de la programmation à votre enfant. Sans écran, intuitif et >prêt à l’emploi.
+>+ **Un langage de programmation** à toucher et à manipuler comme des LEGO®. À chaque bloc, une action. Combinez-les pour créer des >programmes.
+>+ **Un panneau de commandes**. Placez les blocs sur le panneau pour indiquer la direction à Cubetto. Appuyez sur le bouton bleu et >Cubetto exécute votre premier programme.
+>+ Mappemondes et livres d'histoires. Poursuivez l’aventure avec nos mappemondes, livres d’histoires et **défis**
  
 _extraits de la brochure commerciale_ 
 
