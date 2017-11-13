@@ -7,10 +7,10 @@
 
 
 Vous avez pour mission d’évaluer le potentiel génétique des candidats d’un nouveau centre spatial. Pour cela, vous avez développé une méthode de séquençage de leur ADN. Le candidat est une espèce à 1 chromosome double brin. C’est-à-dire que son ADN peut être vu comme deux chaînes de caractères a et b composées exclusivement des lettres `A`, `C`, `G` et `T`. Par ailleurs ces deux chaînes sont complémentaires, elles sont donc de même longueur et vérifient :
-- a[_i_] = `A` ⇔ b[_i_] = `T`
-- a[_i_] = `T` ⇔ b[_i_] = `A`
-- a[_i_] = `C` ⇔ b[_i_] = `G`
-- a[_i_] = `G` ⇔ b[_i_] = `C`
+- a[i] = `A` ⇔ b[i] = `T`
+- a[i] = `T` ⇔ b[i] = `A`
+- a[i] = `C` ⇔ b[i] = `G`
+- a[i] = `G` ⇔ b[i] = `C`
 
 Lors du séquençage, les deux chaînes se cassent en plusieurs petits fragments qui sont mélangés entre eux. Votre méthode n’est pas si mauvaise que ça, vous savez que l’ordre des caractères dans un fragment n’a pas été inversé. Vous êtes cependant obligé écrire un programme pour recoller les morceaux dans un ordre plausible. Pour vous assurer que vous n’avez oublié aucun fragment, votre programme renverra les deux chaînes a et b en séparant les différents fragments par des espaces.
 
