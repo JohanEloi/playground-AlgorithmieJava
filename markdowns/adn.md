@@ -90,4 +90,4 @@ Le sujet consiste à compter des cases :
 :::
 
 
-@[ADN]({"stubs": ["src/main/java/com/egaetan/ADN.java"], "command": "com.egaetan.ADN#test"})
+@[ADN]({"stubs": ["src/main/java/com/egaetan/ADN.java"], "command": "com.egaetan.ADNTest#test"})
