@@ -6,7 +6,7 @@
 ## Enoncé
 
 
-Vous avez pour mission d’évaluer le potentiel génétique des candidats d’un nouveau centre spatial. Pour cela, vous avez développé une méthode de séquençage de leur ADN. Le candidat est une espèce à 1 chromosome double brin. C’est-à-dire que son ADN peut être vu comme deux chaînes de caractères a et b composées exclusivement des lettres `A`, `C`, `G` et `T`. Par ailleurs ces deux chaînes sont complémentaires, elles sont donc de même longueur et vérifient :
+Vous avez pour mission d’évaluer le potentiel génétique des candidats d’un nouveau centre spatial 🌠. Pour cela, vous avez développé une méthode de séquençage de leur ADN. Le candidat est une espèce à 1 chromosome double brin. C’est-à-dire que son ADN peut être vu comme deux chaînes de caractères a et b composées exclusivement des lettres `A`, `C`, `G` et `T`. Par ailleurs ces deux chaînes sont complémentaires, elles sont donc de même longueur et vérifient :
 - a[i] = `A` ⇔ b[i] = `T`
 - a[i] = `T` ⇔ b[i] = `A`
 - a[i] = `C` ⇔ b[i] = `G`
