@@ -39,10 +39,10 @@ Puis dans une double boucle lire la carte
 		for (int j = 0; j < n; j++) {
 			switch (line.charAt(j)) {
 				case 'X':
-				    // evaporateur en (j, i)
+				    /* evaporateur en (j, i) */
                     break;
                 case '.'
-                    // case vide en (j, i)
+                    /* case vide en (j, i) */
                     break;
 			}
 		}
