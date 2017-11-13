@@ -33,7 +33,7 @@ Une solution possible est alors :
 
 Ce qui donne la sortie suivante (voir plus bas pour le format de sortie) :
 
-`TAG G#AT CC`
+`TAG␣G#AT␣CC`
 
 On pourrait bien sûr permuter les brins 1 et 2 et la solution serait aussi correcte.
 
