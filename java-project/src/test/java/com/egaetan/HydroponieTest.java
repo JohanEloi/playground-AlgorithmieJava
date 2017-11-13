@@ -5,7 +5,7 @@ import org.junit.Test;
 public class HydroponieTest extends AbstractTestRunner {
 
 	public HydroponieTest() {
-		super(() -> new Hydroponie().main(), "Réussite de l'exploitation 🚜");
+		super(() -> new Hydroponie().main(), "Réussite de l'exploitation 🚜 🌻🌼🌷🌻🌼🌷🌻🌼🌷🌻🌼🌷");
 	}
 	
 	@Test
@@ -15,7 +15,7 @@ public class HydroponieTest extends AbstractTestRunner {
 		runTestFromFile("hydroponie/test3.txt", "Au bord opposé 🌷", "5");
 		runTestFromFile("hydroponie/test4.txt", "En couple 🍒", "10");
 		runTestFromFile("hydroponie/test5.txt", "Moyen 🌾", "58");
-		runTestFromFile("hydroponie/test6.txt", "Grand 🌳", "58");
+		runTestFromFile("hydroponie/test6.txt", "Grand 🌳", "1283");
 	}
 
 	
