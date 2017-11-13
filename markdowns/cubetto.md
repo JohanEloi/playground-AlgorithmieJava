@@ -19,7 +19,7 @@ _extraits de la brochure commerciale_
 
 Très vite papa et maman se sont lancés des défis. La mappemonde sur laquelle se déplace Cubetto est une grille de **6x6**.
 
-Certaines cases contiennent des images de rivière et ne doivent pas être traversées. Le défi consiste à partir d'une case et d'une orientation donnée à déplacer le robot jusqu'à la case d'arrivée en évitant les cases interdites.
+Certaines cases contiennent des images de rivière et ne doivent pas être traversées. Le défi consiste à partir d'une case et d'une orientation donnée à déplacer le robot jusqu'à la case d'arrivée en évitant les cases interdites et en passant par les cases obligatoires.
 
 Le langage de programmation consiste en blocs colorés :
 + 4 verts font avancer
@@ -40,13 +40,19 @@ Le panneau de commande accueille les blocs, il est séparé en deux parties :
 
 ### Entrée
 
-**Ligne 1** : un entier N compris entre 10 et 100 représentant le nombre de tours.
-
-**Lignes 2 à N+1** : deux entiers compris entre 1 et 10 séparés par un espace représentant la carte du joueur A et celle du joueur B.
+**Ligne 1 à 6** : les lignes de la carte représentées par des chaînes de N caractères. Les caractères de la ligne sont  :
++ `X` case interdite
++ `.` case vide
++ `O` case arrivée
++ `P` case passage obligatoire
 
 ### Sortie
-Le caractère A ou le caractère B représentant le gagnant de la partie.
 
+Une chaîne de caractère correspondant au chemin avec
++ `V` pour vert
++ `R` pour rouge
++ `J` pour jaune
++ `B` pour bleu
 
 ::: Explications
 
