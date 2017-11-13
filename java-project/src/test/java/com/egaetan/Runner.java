@@ -49,15 +49,17 @@ public class Runner {
 				throw new RuntimeException("Should never happen...", e);
 			}
 			
+			String res = baos.toString().trim();
+			valideur.accept(res);
+
+			msg("Résultats", "✔ "+ testName);
+			
 			String logsOut = logs.toString().trim();
 			if (logsOut.length() > 0) {
 				Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
 			}
 			
-			String res = baos.toString().trim();
-			valideur.accept(res);
 
-			msg("Résultats", "✔ "+ testName);
 		} catch (AssertionError ae) {				
 			isAllOk = false;
 			msg("Résultats", "✘ " + testName + " " + ae.getMessage());
