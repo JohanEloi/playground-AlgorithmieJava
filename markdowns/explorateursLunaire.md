@@ -104,7 +104,7 @@ Tourne à droite :
 public class RobotsLunaires {
 	
 	enum Orientation {
-		N, W, E, S;
+		N, W, S, E;
 	}
 }
 ```
@@ -146,6 +146,20 @@ public Orientation right() {
 ```
 
 💡 Il est préférable de conserver le vocabulaire de l'énoncé, on nomme donc les fonctions `left` et `right`
+
+::: Avancé
+On peut utiliser un modulo pour les fonctions `left` et `right`
+
+```java
+public Orientation left() {
+    return Orientation.values()[(this.ordinal() + 1) % 4];
+}
+
+public Orientation right() {
+    return Orientation.values()[(this.ordinal() - 1 + 4) % 4];
+}
+:::
+
 :::
 
 :::Mouvement
