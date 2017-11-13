@@ -24,6 +24,9 @@ CC
 TAG
 
 Une solution possible est alors :
+|Brin1|TAGG|
+|Brin2|ATCC|
+
 
 Ce qui donne la sortie suivante (voir plus bas pour le format de sortie) :
 TAG G#AT CC
