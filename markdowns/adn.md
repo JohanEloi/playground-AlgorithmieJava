@@ -41,6 +41,7 @@ On pourrait bien sûr permuter les brins 1 et 2 et la solution serait aussi corr
 
 ### Entrée
 **Ligne 1**: un entier **N** compris entre 2 et 8, indiquant le nombre de fragments d’ADN.
+
 **Lignes 2 à N+1**: une chaine comprenant entre 1 et 16 caractères, composée exclusivement des lettres `A`, `T`, `C`, et `G` représentant un fragment.
 
 ### Sortie
