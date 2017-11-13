@@ -10,7 +10,7 @@ public class HydroponieTest extends AbstractTestRunner {
 	
 	@Test
 	public void test() {
-		runTestFromFile("bataille/bataille1.txt", "Simple test, A vainqueur", "A");
+		runTestFromFile("hydroponie/test1.txt", "Simple test", "8");
 	}
 
 	
