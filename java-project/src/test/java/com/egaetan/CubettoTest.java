@@ -71,8 +71,7 @@ public class CubettoTest extends AbstractTestRunner {
 
 		@Override
 		public String input() {
-			// TODO Auto-generated method stub
-			return null;
+			return map;
 		}
 		
 	}
