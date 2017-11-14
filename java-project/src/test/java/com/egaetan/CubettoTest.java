@@ -182,6 +182,20 @@ public class CubettoTest extends AbstractTestRunner {
 			List<Bloc> function = new ArrayList<>();
 			
 			@Override
+			public boolean equals(Object obj) {
+				if (obj instanceof Board) {
+					Board other = (Board) obj;
+					return compare(main, other.main) && compare(other.function, function);
+				}
+				return super.equals(obj);
+			}
+			
+			@Override
+			public int hashCode() {
+				return toString().hashCode();
+			}
+			
+			@Override
 			public Board clone() {
 				Board o = new Board();
 				o.main.addAll(main);
@@ -425,7 +439,7 @@ public class CubettoTest extends AbstractTestRunner {
 			Board solution = null;
 			int minBoard = 999_999;
 			long nbTested = 0;
-			List<Board> solutions = new ArrayList<>();
+			Set<Board> solutions = new HashSet<>();
 			Set<String> already = new HashSet<>();
 			//Set<Board> alreadyFailed = new HashSet<>(); // already prefix
 			World worldOrigine = readWorld(map);
