@@ -1,10 +1,16 @@
 package com.egaetan;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.StrictAssertions.assertThat;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -17,14 +23,37 @@ public class CubettoTest extends AbstractTestRunner {
 	
 	@Test
 	public void test() {
-		runFromData("Cubetto", new CubettoData(
+		/*runFromData("Tout droit", new CubettoData(
 				  "......"
 				+ ".>..O."
 				+ "......"
 				+ "......"
 				+ "......"
 				+ "......"
-						  ));
+						  ));*/
+		runFromData("Tourne", new CubettoData(
+						  "..X..."
+						+ ".>X.O."
+						+ "..X..."
+						+ "......"
+						+ "......"
+						+ "......"
+				));
+	}
+	
+	public static void main(String[] args) {
+		CubettoData d = new CubettoData(
+				  "..X..."
+				+ ".>X.O."
+				+ "..X..."
+				+ "......"
+				+ "......"
+				+ "......"
+		);
+		long start = java.lang.System.currentTimeMillis();
+		d.solve();
+		long end = java.lang.System.currentTimeMillis();
+		java.lang.System.out.println((end - start) + "ms elapsed.");
 	}
 
 	static class CubettoData implements Data {
@@ -36,7 +65,10 @@ public class CubettoTest extends AbstractTestRunner {
 			B,
 			V,
 			J,
-			R;
+			R,
+			U,
+			SEPARATOR,
+			END;
 		}
 		
 		enum Case {
@@ -107,6 +139,11 @@ public class CubettoTest extends AbstractTestRunner {
 				this.arrivee = arrivee;
 			}
 			
+			@Override
+			public World clone() {
+				Robot cubettoClone = new Robot(cubetto.position, cubetto.orientation);
+				return new World(cubettoClone, grille, passages, arrivee);
+			}
 			
 		}
 		
@@ -144,9 +181,201 @@ public class CubettoTest extends AbstractTestRunner {
 			List<Bloc> main = new ArrayList<>();
 			List<Bloc> function = new ArrayList<>();
 			
+			@Override
+			public Board clone() {
+				Board o = new Board();
+				o.main.addAll(main);
+				o.function.addAll(function);
+				return o;
+			}
+			
 			public void check() {
 				assertThat(main.size()).as("Taille du main %d", main.size()).isLessThanOrEqualTo(12);
 				assertThat(function.size()).as("Taille de la fonction %d", main.size()).isLessThanOrEqualTo(4);
+			}
+			
+			@Override
+			public String toString() {
+				return main.stream().map(Object::toString).collect(Collectors.joining()) + " # " + function.stream().map(Object::toString).collect(Collectors.joining());
+			}
+			
+			public int score() {
+				
+				return main.size() + 
+						(function.size() > 0 ? (100 + function.size()) : 0);
+			}
+
+			public String text() {
+				cleanBoard(true);
+				
+				return toString();
+			}
+
+			public void cleanBoard(boolean aggressive) {
+				if (!main.contains(Bloc.B)) {
+					function.clear();
+				}
+				else if (function.contains(Bloc.B)) {
+					int ib = main.indexOf(Bloc.B);
+					main = main.subList(0, ib);
+
+					int ibb = function.indexOf(Bloc.B);
+					function = function.subList(0, ibb);
+				}
+
+				clean(function, aggressive);
+				
+				if (function.size() == 1 && function.get(0) == Bloc.B) {
+					function.clear();
+				}
+				
+				if (function.size() == 0) {
+					boolean removed = main.remove(Bloc.B) && main.remove(Bloc.B) && main.remove(Bloc.B) && main.remove(Bloc.B);
+				}
+				clean(main, aggressive);
+			}
+
+			public void clean(List<Bloc> src, boolean agressive) {
+				boolean again = true;
+				while (again) {
+					again = false;
+					boolean nothing = true;
+					
+					Bloc prev = Bloc.END;
+					for (int i = 0; i < src.size(); i++) {
+						Bloc b = src.get(i);
+						if (b == Bloc.V || b == Bloc.B) {
+							nothing = false;
+						}
+						if (prev == Bloc.J && b == Bloc.R) {
+							again = true;
+							src.remove(i);
+							src.remove(i - 1);
+							break;
+						}
+						if (prev == Bloc.R && b == Bloc.J) {
+							again = true;
+							src.remove(i);
+							src.remove(i - 1);
+							break;
+						}
+						if (agressive) {
+							if (i >= 3-1 && src.get(i-2)==src.get(i-1)&&src.get(i-1)==src.get(i)) {
+								if (src.get(i) == Bloc.J) {
+									src.add(i-2, Bloc.R);
+									src.remove(i-1);
+									src.remove(i-1);
+									src.remove(i-1);
+									again = true;
+									break;
+								}
+								else if (src.get(i) == Bloc.R) {
+									src.add(i-2, Bloc.J);
+									src.remove(i-1);
+									src.remove(i-1);
+									src.remove(i-1);
+									again = true;
+									break;
+								}
+							}
+							if (prev == Bloc.R && b == Bloc.R) {
+								again = true;
+								src.add(i-1, Bloc.U);
+								src.remove(i);
+								src.remove(i);
+								break;
+							}
+							if (prev == Bloc.J && b == Bloc.J) {
+								again = true;
+								src.add(i-1, Bloc.U);
+								src.remove(i);
+								src.remove(i);
+								break;
+							}
+							if (prev == Bloc.U && b == Bloc.J) {
+								again = true;
+								src.add(i-1, Bloc.R);
+								src.remove(i);
+								src.remove(i);
+								break;
+							}
+							if (prev == Bloc.J && b == Bloc.U) {
+								again = true;
+								src.add(i-1, Bloc.R);
+								src.remove(i);
+								src.remove(i);
+								break;
+							}
+							if (prev == Bloc.U && b == Bloc.R) {
+								again = true;
+								src.add(i-1, Bloc.R);
+								src.remove(i);
+								src.remove(i);
+								break;
+							}
+							if (prev == Bloc.R && b == Bloc.U) {
+								again = true;
+								src.add(i-1, Bloc.J);
+								src.remove(i);
+								src.remove(i);
+								break;
+							}
+						}
+						if (i >= 4-1 && src.get(i-3)== src.get(i-2) && src.get(i-2)==src.get(i-1)&&src.get(i-1)==src.get(i)) {
+							if (src.get(i) == Bloc.J) {
+								src.remove(Bloc.J);
+								src.remove(Bloc.J);
+								src.remove(Bloc.J);
+								src.remove(Bloc.J);
+								again = true;
+								break;
+							}
+							else if (src.get(i) == Bloc.R) {
+								src.remove(Bloc.R);
+								src.remove(Bloc.R);
+								src.remove(Bloc.R);
+								src.remove(Bloc.R);
+								again = true;
+								break;
+							}
+						}
+						
+						prev = b;
+					}
+					if (!again && nothing) {
+						src.clear();
+					}
+				}
+			}
+
+			public boolean compare(List<Bloc> b1, List<Bloc> b2) {
+				if (b1.size() != b2.size()) {
+					return false;
+				}
+				for (int i = 0; i < b1.size() ; i++) {
+					if (b1.get(i) != b2.get(i)) {
+						return false;
+					}
+				}
+				return true;
+			}
+
+			public boolean startWith(List<Bloc> b1, List<Bloc> b2) {
+				if (b1.size() > b2.size()) {
+					return false;
+				}
+				for (int i = 0; i < b1.size() ; i++) {
+					if (b1.get(i) != b2.get(i)) {
+						return false;
+					}
+				}
+				return true;
+			}
+			
+			public boolean match(Set<Board> alreadyFailed) {
+				clean(function, false);
+				return alreadyFailed.stream()
+				.anyMatch(f-> compare(f.function, function) && startWith(f.main, main));
 			}
 		}
 		
@@ -161,9 +390,149 @@ public class CubettoTest extends AbstractTestRunner {
 					map.substring(30, 36) + "\n";
 		}
 
+		
+		public static <T extends Comparable<T>> boolean nextPerm(List<T> a) {
+            int i = a.size() - 2;
+            while (i >= 0 && a.get(i).compareTo(a.get(i + 1))>=0)
+                   i--;
+
+            if (i < 0)
+                   return false;
+
+            int j = a.size() - 1;
+            while (a.get(i).compareTo(a.get(j)) >= 0)
+                   j--;
+
+            Collections.swap(a, i, j);
+            Collections.reverse(a.subList(i + 1, a.size()));
+            return true;
+      }
+
+
+		
+		private boolean solve() {
+			List<Bloc> alls = new ArrayList<>();
+			for (int i = 0; i < 4; i++) {
+				alls.add(Bloc.V);
+				alls.add(Bloc.J);
+				alls.add(Bloc.R);
+				alls.add(Bloc.B);
+			}
+			//alls.add(Bloc.SEPARATOR);
+			//alls.add(Bloc.END);
+			alls.sort(Comparator.naturalOrder());
+			
+			Board solution = null;
+			int minBoard = 999_999;
+			long nbTested = 0;
+			List<Board> solutions = new ArrayList<>();
+			Set<String> already = new HashSet<>();
+			//Set<Board> alreadyFailed = new HashSet<>(); // already prefix
+			World worldOrigine = readWorld(map);
+			do {
+				World world = worldOrigine.clone();
+				List<Position> path = new ArrayList<>();
+				Board boardo = new Board();
+				List<Bloc> current = boardo.main;
+				for (int i = 0; i< 16; i++) {
+					Bloc b = alls.get(i);
+					if (b == Bloc.END) {
+						break;
+					}
+					if (i == 12) {
+						current = boardo.function;
+					}
+					
+					if (b == Bloc.SEPARATOR) {
+						current = boardo.function;
+						continue;
+					}
+					current.add(b);
+				}
+				/*if (boardo.match(alreadyFailed)) {
+					nbTested ++;
+					continue;
+				}*/
+				Board board = boardo.clone();
+				
+				if (!already.add(board.text())) {
+					continue;
+				}
+				try {
+					nbTested ++;
+					java.lang.System.err.println("try "+ board + " \t\t" + nbTested);
+					run(board, board.main, world, path);
+				
+					assertThat(world.cubetto.position).as("Position").isEqualTo(world.arrivee);
+					assertThat(path).as("Chemin").containsAll(world.passages);
+					
+					boardo.cleanBoard(false);
+					
+					for (int i = 1; i < boardo.main.size(); i++) {
+						Board board2 = boardo.clone();
+						board2.main = board2.main.subList(0, i);
+						board2.cleanBoard(false);
+						
+						World world2 = worldOrigine.clone();
+						List<Position> path2 = new ArrayList<>();
+						try {
+							run(board2, board2.main, world2, path2);
+
+							assertThat(world2.cubetto.position).as("Position").isEqualTo(world2.arrivee);
+							assertThat(path2).as("Chemin").containsAll(world2.passages);
+
+							solutions.add(board2);
+							System.err.println(board2);
+							if (minBoard>board2.score()) {
+								minBoard = board2.score();
+								solution = board2;
+							}
+							break;
+						}
+						catch (AssertionError  e) {
+							// 
+						}
+					}
+					
+					
+					
+				}
+				catch (AssertionError  e) {
+					// 
+					if (e.getMessage().contains("n'est pas autorisé")
+							|| e.getMessage().contains("est invalide")) {
+					//	alreadyFailed.add(board);
+						
+					} else if (e.getMessage().contains("[Position] expected:")) {
+						
+					}
+					else {
+						e.printStackTrace();
+						System.err.println();
+						
+					}
+				}
+				
+			} while (nextPerm(alls));
+
+			solutions.stream().forEach(s -> java.lang.System.out.println(s + "  : "+ s.score() + " "+s.text()));
+			if (solution != null) {
+				java.lang.System.out.println("**** "+ solution);
+				return true;
+			}
+			return false;
+			
+		}
+		
+		
 		@Override
 		public void check(String actual) {
+			boolean possible = solve();
+			
+			World world = readWorld(map);
+			
 			checkNb(actual);
+			
 			Board board = new Board();
 			List<Bloc> current = board.main;
 			for (int i = 0; i < actual.length(); i++) {
@@ -178,51 +547,95 @@ public class CubettoTest extends AbstractTestRunner {
 			}
 			board.check();
 			
-			World world = readWorld(map);
 			List<Position> path = new ArrayList<>();
-			int steps = run(board, board.main, world, path, 0);
+			run(board, board.main, world, path);
 			
 			assertThat(world.cubetto.position).as("Position").isEqualTo(world.arrivee);
 			assertThat(path).as("Chemin").containsAll(world.passages);
 			
 		}
 
-		public int run(Board board, List<Bloc> current, World world, List<Position> path, int steps) {
-			for (int i = 0; i < current.size(); i++) {
-				steps = action(board, world, path, current.get(i), steps);
+		static class Pointer {
+			int steps = 0;
+			int indx = 0;
+			boolean inFunction = false;
+			int inMain;
+			
+			public void jumpFunction() {
+				if (!inFunction) {
+					inMain = indx;
+				}
+				inFunction = true;
+				indx = 0;
+			}
+
+			public boolean hasNext(Board b) {
+				if (inFunction) {
+					return b.function.size() > indx;
+				}
+				return b.main.size() > indx;
+			}
+			
+			public Bloc next(Board b) {
+				steps++;
+				if (inFunction) {
+					Bloc bloc = b.function.get(indx);
+					indx ++;
+					if (indx == b.function.size()) {
+						indx = inMain;
+						inFunction = false;
+					}
+					return bloc;
+				}
+				Bloc bloc = b.main.get(indx);
+				indx ++;
+				return bloc;
+			}
+			
+		}
+		
+		public void run(Board board, List<Bloc> current, World world, List<Position> path) {
+			Pointer p = new Pointer();
+			while (p.hasNext(board)) {
+				action(board, world, path, p);
 				if (world.arrivee.equals(world.cubetto.position)) {
 					break;
 				}
-				if (steps > 10_000) {
+				if (world.cubetto.position.x < 0 || world.cubetto.position.x >= 6) {
+					Assertions.fail(world.cubetto.position + " est invalide");
+				}
+				if (world.cubetto.position.y < 0 || world.cubetto.position.y >= 6) {
+					Assertions.fail(world.cubetto.position + " est invalide");
+				}
+				
+				if (world.grille[world.cubetto.position.x][world.cubetto.position.y] == Case.BLOCKED) {
+					Assertions.fail(world.cubetto.position + " n'est pas autorisé");
+					break;
+				}
+				if (p.steps > 1_000) {
 					break;
 				}
 			}
-			
-			return steps;
 		}
 
-		public int action(Board board, World world, List<Position> path, Bloc bloc, int steps) {
+		public void action(Board board, World world, List<Position> path, Pointer p) {
+			Bloc bloc = p.next(board);
 			switch (bloc) {
 			case V:
 				world.cubetto.move();
-				steps++;
 				break;
 			case J:
 				world.cubetto.left();
-				steps++;
 				break;
 			case R:
 				world.cubetto.right();
-				steps++;
 				break;
 			case B:
-				steps++;
-				run(board, board.function, world, path, steps);
+				p.jumpFunction();
 				break;
 
 			}
 			path.add(world.cubetto.position);
-			return steps;
 		}
 
 		private World readWorld(String mapLines) {
@@ -284,10 +697,10 @@ public class CubettoTest extends AbstractTestRunner {
 					break;
 				case 'R':
 					rouges ++;
-					break;	
+					break;
 				case 'J':
 					jaunes ++;
-					break;	
+					break;
 				case 'B':
 					bleus ++;
 					break;
