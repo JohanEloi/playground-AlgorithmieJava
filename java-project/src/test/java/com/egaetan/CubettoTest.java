@@ -134,6 +134,10 @@ public class CubettoTest extends AbstractTestRunner {
 				return x * 13 + y;
 			}
 			
+			@Override
+			public String toString() {
+				return x + " " + y;
+			}
 		}
 		
 		static class Board {
