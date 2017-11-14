@@ -43,6 +43,13 @@ public class Runner {
 				if (runnerThread.isAlive()) {
 					msg("Résultats", "✘ " + testName + " - Temps dépassé");
 					isAllOk = false;
+					String logsOut = logs.toString().trim();
+					if (logsOut.length() > 0) {
+						if (logsOut.length() > 10 * 1024) {
+							logsOut = logsOut.substring(0, 10 * 1024 - 5) + "\n...";
+						}
+						Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
+					}
 					return;
 				}
 			} catch (InterruptedException e) {
@@ -53,24 +60,19 @@ public class Runner {
 			valideur.accept(res);
 
 			msg("Résultats", "✔ "+ testName);
-			
-			String logsOut = logs.toString().trim();
-			if (logsOut.length() > 0) {
-				Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
-			}
-			
 
 		} catch (AssertionError ae) {				
 			isAllOk = false;
 			msg("Résultats", "✘ " + testName + ": " + ae.getMessage());
 			
-			String logsOut = logs.toString().trim();
-			if (logsOut.length() > 0) {
-				if (logsOut.length() > 10 * 1024) {
-					logsOut = logsOut.substring(0, 10 * 1024 - 5) + "\n...";
-				}
-				Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
+			
+		}
+		String logsOut = logs.toString().trim();
+		if (logsOut.length() > 0) {
+			if (logsOut.length() > 10 * 1024) {
+				logsOut = logsOut.substring(0, 10 * 1024 - 5) + "\n...";
 			}
+			Arrays.stream(logsOut.split("\n")).forEach(l -> msg("Log - "+testName, l));
 		}
 	}
 
