@@ -460,7 +460,7 @@ public class CubettoTest extends AbstractTestRunner {
 				}
 				try {
 					nbTested ++;
-					java.lang.System.err.println("try "+ board + " \t\t" + nbTested);
+					//java.lang.System.err.println("try "+ board + " \t\t" + nbTested);
 					run(board, board.main, world, path);
 				
 					assertThat(world.cubetto.position).as("Position").isEqualTo(world.arrivee);
