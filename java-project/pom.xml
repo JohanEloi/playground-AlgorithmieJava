@@ -5,8 +5,8 @@
 	<groupId>com.egaetan</groupId>
 	<version>1.0.0</version>
 
-	<name>java-project</name>
-	<description>Add project description here</description>
+	<name>algorithmes</name>
+	<description>Algo runner</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,6 +18,11 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
 
