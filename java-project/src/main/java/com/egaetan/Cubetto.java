@@ -29,10 +29,13 @@ public class Cubetto {
 					break;
 				case '^':
 					
+					break;	
 				case '<':
 					
+					break;	
 				case 'v':
 					
+					break;	
 				case '>':
 					
 					break;
