@@ -56,7 +56,7 @@ Une chaîne de caractère correspondant au chemin avec
 + `#` pour séparer les emplacements du programme principal de ceux de la fonction
 ou `IMPOSSIBLE` si le défi n'est pas réalisable
 
-Les emplacements peuvent être rendu par un espace ou ignorés.
+Les emplacements vides peuvent être rendu par un espace ou ignorés.
 
 ::: Explications
 
