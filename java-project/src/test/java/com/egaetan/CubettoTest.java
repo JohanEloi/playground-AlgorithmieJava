@@ -30,7 +30,13 @@ public class CubettoTest extends AbstractTestRunner {
 		
 		public CubettoData(String map) {
 			super();
-			this.map = map;
+			this.map = 
+					map.substring(0, 6) + "\n" +
+					map.substring(6, 12) + "\n" +
+					map.substring(12, 18) + "\n" +
+					map.substring(18, 24) + "\n" +
+					map.substring(24, 30) + "\n" +
+					map.substring(30, 36) + "\n";
 		}
 
 		@Override
