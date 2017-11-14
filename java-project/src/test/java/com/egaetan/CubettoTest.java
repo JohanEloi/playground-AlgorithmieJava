@@ -281,10 +281,13 @@ public class CubettoTest extends AbstractTestRunner {
 				switch (actual.charAt(i)) {
 				case 'V':
 					verts ++;
+					break;
 				case 'R':
 					rouges ++;
+					break;	
 				case 'J':
 					jaunes ++;
+					break;	
 				case 'B':
 					bleus ++;
 					break;
