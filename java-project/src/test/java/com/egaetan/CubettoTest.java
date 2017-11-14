@@ -237,7 +237,6 @@ public class CubettoTest extends AbstractTestRunner {
 			
 			for (int iy = 0; iy < 6; iy++) {
 				String line = lines[iy];
-				System.err.println(line);
 				for (int ix = 0; ix < 6; ix++) {
 					Position current = new Position(ix, iy);
 					switch (line.charAt(ix)) {
