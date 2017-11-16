@@ -29,7 +29,7 @@ public class CubettoTest extends AbstractTestRunner {
 		Arrays.stream(file.list()).forEach(f -> msg("DIR", f));
 
 		
-		System.out.println("TECHIO> open --static-dir /project/www/wait.html");
+		System.out.println("TECHIO> open --static-dir ../project/www/wait.html");
 		runFromData("Tout droit", new CubettoData(
 				  "......"
 				+ ".>..O."
