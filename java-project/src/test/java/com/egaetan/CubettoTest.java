@@ -3,7 +3,9 @@ package com.egaetan;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.StrictAssertions.assertThat;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -23,6 +25,9 @@ public class CubettoTest extends AbstractTestRunner {
 	
 	@Test
 	public void test() {
+		File file = new File("/");
+		Arrays.stream(file.list()).forEach(f -> msg("DIR", f));
+		
 		System.out.println("TECHIO> open --static-dir /project/www/wait.html");
 		runFromData("Tout droit", new CubettoData(
 				  "......"
