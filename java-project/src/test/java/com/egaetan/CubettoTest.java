@@ -25,11 +25,7 @@ public class CubettoTest extends AbstractTestRunner {
 	
 	@Test
 	public void test() {
-			File file = new File(".");
-		Arrays.stream(file.list()).forEach(f -> msg("DIR", f));
-		System.out.println("TECHIO> terminal");
 		
-		System.out.println("TECHIO> open --static-dir /project/answer/src/wait.html");
 		runFromData("Tout droit", new CubettoData(
 				  "......"
 				+ ".>..O."
@@ -80,6 +76,17 @@ public class CubettoTest extends AbstractTestRunner {
 		java.lang.System.out.println((end - start) + "ms elapsed.");
 	}
 
+	static class CubettoImpossibleData extends CubettoData {
+
+		public CubettoImpossibleData(String map) {
+			super(map);
+		}
+		
+		@Override
+		public void check(String actual) {
+			assertThat(actual.trim()).isEqualToIgnoringCase("IMPOSSIBLE");
+		}
+	}
 	static class CubettoData implements Data {
 
 		boolean possible = true;
@@ -579,8 +586,6 @@ public class CubettoTest extends AbstractTestRunner {
 					}
 					else {
 						e.printStackTrace();
-						System.err.println();
-						
 					}
 				}
 				
@@ -598,11 +603,7 @@ public class CubettoTest extends AbstractTestRunner {
 		
 		@Override
 		public void check(String actual) {
-			long start = java.lang.System.currentTimeMillis();
-			boolean possible = solve();
-			long end = java.lang.System.currentTimeMillis();
-
-			System.err.println("Solved in " + (end - start) + "ms.");
+			assertThat(actual.trim()).isNotEqualToIgnoringCase("IMPOSSIBLE");
 			
 			World world = readWorld(map);
 			
