@@ -25,8 +25,9 @@ public class CubettoTest extends AbstractTestRunner {
 	
 	@Test
 	public void test() {
-		File file = new File("/");
+			File file = new File(".");
 		Arrays.stream(file.list()).forEach(f -> msg("DIR", f));
+
 		
 		System.out.println("TECHIO> open --static-dir /project/www/wait.html");
 		runFromData("Tout droit", new CubettoData(
