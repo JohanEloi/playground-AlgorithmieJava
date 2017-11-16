@@ -119,4 +119,4 @@ Il faut écrire `"A"` ou `"B"` suivant leurs points respectifs.
 :::
 
 
-@[Cubetto]({"stubs": ["src/main/java/com/egaetan/Cubetto.java"], "command": "com.egaetan.CubettoTest#test"})
+@[Cubetto]({"stubs": ["src/main/java/com/egaetan/Cubetto.txt"], "command": "com.egaetan.CubettoTest#test"})
