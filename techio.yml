@@ -12,10 +12,10 @@ plan:
   statement: markdowns/hydroponie.md
 - title: ADN
   statement: markdowns/adn.md 
-- title: Cubetto
-  statement: markdowns/cubetto.md   
-- title: Pizza
-  statement: markdowns/pizza.md  
+#- title: Cubetto
+#  statement: markdowns/cubetto.md   
+#- title: Pizza
+#  statement: markdowns/pizza.md  
   
 projects:
   java:
